@@ -8,37 +8,46 @@ import {
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router-dom';
+import UserContext from './UserContext.js';
 
 // -------- Issue Row Component ---------------
 
-const IssueRow = withRouter(
-  ({
-    issue, location: { search }, closeIssue, index, deleteIssue,
-  }) => {
-    /**
-     * Represents each row of issue in a IssueTable.
-     * Props: issue: {[string]: any}, search: String
-     *        closeIssue: Func(index), index: Int
-     *        deleteIssue: Func(index)
-     * Parent: IssueTable
-     */
+class IssueRowPlain extends React.Component {
+  /**
+    * const IssueRow = withRouter((props) => {...});
+    * Represents each row of issue in a IssueTable.
+    * Props: issue: {[string]: any}, search: String
+    *        closeIssue: Func(index), index: Int
+    *        deleteIssue: Func(index)
+    * Parent: IssueTable
+    */
+
+  // handles the event of click on close issue button in each row
+  onClose(e) {
+    e.preventDefault();
+    const { closeIssue, index } = this.props;
+    closeIssue(index);
+  }
+
+  // handles the event of click on delete issue button in each row
+  onDelete(e) {
+    e.preventDefault();
+    const { deleteIssue, index } = this.props;
+    deleteIssue(index);
+  }
+
+  render() {
+    const {
+      issue,
+      location: { search },
+    } = this.props;
+
+    const user = this.context;
 
     // tooltip elements to be used in OverLay
     const closeTooltip = <Tooltip id="close-tooltip">Close Issue</Tooltip>;
     const deleteTooltip = <Tooltip id="delete-tooltip">Delete Issue</Tooltip>;
     const editTooltip = <Tooltip id="edit-tooltip">Edit Issue</Tooltip>;
-
-    // handles the event of click on close issue button in each row
-    function onClose(e) {
-      e.preventDefault();
-      closeIssue(index);
-    }
-
-    // handles the event of click on delete issue button in each row
-    function onDelete(e) {
-      e.preventDefault();
-      deleteIssue(index);
-    }
 
     const tableRow = (
       <tr>
@@ -62,7 +71,12 @@ const IssueRow = withRouter(
             overlay={closeTooltip}
             placement="top"
           >
-            <Button bsSize="xsmall" type="button" onClick={onClose}>
+            <Button
+              disabled={!user.signedIn}
+              bsSize="xsmall"
+              type="button"
+              onClick={this.onClose}
+            >
               <Glyphicon glyph="remove" />
             </Button>
           </OverlayTrigger>
@@ -71,7 +85,12 @@ const IssueRow = withRouter(
             overlay={deleteTooltip}
             placement="top"
           >
-            <Button type="button" bsSize="xsmall" onClick={onDelete}>
+            <Button
+              disabled={!user.signedIn}
+              type="button"
+              bsSize="xsmall"
+              onClick={this.onDelete}
+            >
               <Glyphicon glyph="trash" />
             </Button>
           </OverlayTrigger>
@@ -83,8 +102,15 @@ const IssueRow = withRouter(
 
     // each tableRow becomes a link to display description of each id
     return <LinkContainer to={selectedLocation}>{tableRow}</LinkContainer>;
-  },
-);
+  }
+}
+
+// this is due to the fact that the wrapped component IssueRow is a stateless
+// component based on the withRouter documentation. That's why you can't assign
+// to it. contextType is meant to be a static class method.
+IssueRowPlain.contextType = UserContext;
+const IssueRow = withRouter(IssueRowPlain);
+delete IssueRow.contextType;
 
 // --------- Issue Table Component -----------------
 

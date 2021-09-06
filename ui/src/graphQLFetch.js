@@ -11,6 +11,7 @@ export default async function graphQLFetch(
   query,
   variables = {},
   showError = null,
+  cookie = null,
 ) {
   /**
    * Fetches list of issues from the server.
@@ -28,11 +29,14 @@ export default async function graphQLFetch(
     : process.env.UI_API_ENDPOINT;
 
   try {
+    const headers = new Headers({
+      'Content-type': 'application/json',
+    });
+    if (cookie) headers.append('Cookie', cookie);
     const response = await fetch(apiEndpoint, {
       method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
+      credentials: 'include',
+      headers,
       body: JSON.stringify({
         query,
         variables,

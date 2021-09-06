@@ -20,7 +20,7 @@ async function render(req, res) {
   // matchPath(): Returns the "match" object { params: '...' } and null if the
   // path doesn't match.
   // https://reactrouter.com/web/api/matchPath
-  const activeRoute = routes.find((route) => matchPath(req.path, route));
+  const activeRoute = routes.find(route => matchPath(req.path, route));
 
   let initialData;
   if (activeRoute && activeRoute.component.fetchData) {
@@ -32,10 +32,13 @@ async function render(req, res) {
     const search = index !== -1 ? req.path.substr(index) : null;
 
     // fetch data and store it in initialData.
-    initialData = await activeRoute.component.fetchData(match, search);
+    initialData = await activeRoute.component.fetchData(match, search, null);
   }
 
+  const userData = await Page.fetchData(req.headers.cookie);
+
   store.initialData = initialData;
+  store.userData = userData;
 
   // ------- render the routed element to markup -----------------
 
@@ -49,7 +52,7 @@ async function render(req, res) {
     </StaticRouter>
   );
 
-  // create a markup of the component without any event handlers 
+  // create a markup of the component without any event handlers
   const body = ReactDOMServer.renderToString(element);
 
   // ------ send resource to the client ------------
@@ -58,7 +61,7 @@ async function render(req, res) {
     res.redirect(301, context.url);
   } else {
     // send the fetched data alongside the markup
-    res.send(template(body, initialData));
+    res.send(template(body, initialData, userData));
   }
 }
 
