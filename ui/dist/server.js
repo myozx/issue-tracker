@@ -333,32 +333,6 @@ class DateInput extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
 /***/ }),
 
-/***/ "./src/Footer.jsx":
-/*!************************!*\
-  !*** ./src/Footer.jsx ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Footer)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function Footer() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("small", {
-    className: "footer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-center"
-  }, "Full source code available at this", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "https://github.com/aungmcs/issue-tracker"
-  }, "GitHub repository")));
-}
-
-/***/ }),
-
 /***/ "./src/IssueAddNavItem.jsx":
 /*!*********************************!*\
   !*** ./src/IssueAddNavItem.jsx ***!
@@ -1666,6 +1640,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
+/* harmony import */ var _color_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color.js */ "./src/color.js");
+
 
 
 
@@ -1724,7 +1700,9 @@ class IssueRowPlain extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       className: "cell"
     }, issue.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", {
       className: "cell"
-    }, issue.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StatusWrapper, {
+      color: _color_js__WEBPACK_IMPORTED_MODULE_6__.default.status[issue.status]
+    }, issue.status)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", {
       className: "cell"
     }, issue.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", {
       className: "cell"
@@ -1807,7 +1785,6 @@ function IssueTable({
     index: index
   }));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TableWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledTable, {
-    striped: true,
     hover: true,
     responsive: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", {
@@ -1832,7 +1809,7 @@ function IssueTable({
 } // ---------------- styles --------------------
 
 const TableWrap = (styled_components__WEBPACK_IMPORTED_MODULE_2___default().div)`
-  box-shadow: 0px 0px 3px 0px rgba(32, 29, 122, 0.71);
+  border: 0.5px solid #d6d6d6;
   border-radius: 1rem;
   padding: 1.5rem;
   margin: 0 auto;
@@ -1852,9 +1829,18 @@ const StyledTable = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(rea
 
   .cell {
     text-align: center;
-    border-top: transparent;
+    border-top: 0.5px solid #e3e3e3;
+    color: #636363;
     padding-top: 1rem;
+    padding-bottom: 1rem;
   }
+`;
+const StatusWrapper = (styled_components__WEBPACK_IMPORTED_MODULE_2___default().div)`
+  background-color: ${props => props.color};
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+  border-radius: 0.5rem;
+  margin: 0 auto;
 `;
 const ActionFlex = (styled_components__WEBPACK_IMPORTED_MODULE_2___default().div)`
   display: flex;
@@ -2033,14 +2019,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Contents_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Contents.jsx */ "./src/Contents.jsx");
 /* harmony import */ var _NavBar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavBar.jsx */ "./src/NavBar.jsx");
-/* harmony import */ var _Footer_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Footer.jsx */ "./src/Footer.jsx");
-/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
 
 
 
-
+ // import Footer from './Footer.jsx';
 
 
 
@@ -2048,14 +2033,14 @@ __webpack_require__.r(__webpack_exports__);
 class Page extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   static async fetchData(cookie) {
     const query = 'query { user { username signedIn } }';
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_6__.default)(query, null, null, cookie);
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, null, null, cookie);
     return data;
   }
 
   constructor() {
     super();
-    const user = _store_js__WEBPACK_IMPORTED_MODULE_7__.default.userData ? _store_js__WEBPACK_IMPORTED_MODULE_7__.default.userData.user : null;
-    delete _store_js__WEBPACK_IMPORTED_MODULE_7__.default.userData;
+    const user = _store_js__WEBPACK_IMPORTED_MODULE_6__.default.userData ? _store_js__WEBPACK_IMPORTED_MODULE_6__.default.userData.user : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_6__.default.userData;
     this.state = {
       user
     };
@@ -2091,9 +2076,9 @@ class Page extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
       onUserChange: this.onUserChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Grid, {
       fluid: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_UserContext_js__WEBPACK_IMPORTED_MODULE_5__.default.Provider, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_UserContext_js__WEBPACK_IMPORTED_MODULE_4__.default.Provider, {
       value: user
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Contents_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Contents_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null))));
   }
 
 }
@@ -2551,6 +2536,30 @@ const UserContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cr
   signedIn: false
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserContext);
+
+/***/ }),
+
+/***/ "./src/color.js":
+/*!**********************!*\
+  !*** ./src/color.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const colors = {
+  primary: '#282487',
+  status: {
+    New: '#ffe6b3',
+    Closed: '#ffc3b3',
+    Fixed: '#deffb3',
+    Assigned: ''
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (colors);
 
 /***/ }),
 

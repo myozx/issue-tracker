@@ -4,7 +4,7 @@ import {
 } from 'react-bootstrap';
 import Contents from './Contents.jsx';
 import NavBar from './NavBar.jsx';
-import Footer from './Footer.jsx';
+// import Footer from './Footer.jsx';
 import UserContext from './UserContext.js';
 import graphQLFetch from './graphQLFetch.js';
 import store from './store.js';
@@ -48,7 +48,7 @@ export default class Page extends React.Component {
             <Contents />
           </UserContext.Provider>
         </Grid>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

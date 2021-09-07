@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router-dom';
 import UserContext from './UserContext.js';
+import colors from './color.js';
 
 // -------- Issue Row Component ---------------
 
@@ -53,7 +54,13 @@ class IssueRowPlain extends React.Component {
     const tableRow = (
       <tr>
         <td className="cell">{issue.id}</td>
-        <td className="cell">{issue.status}</td>
+        <td className="cell">
+          <StatusWrapper
+            color={colors.status[issue.status]}
+          >
+            {issue.status}
+          </StatusWrapper>
+        </td>
         <td className="cell">{issue.owner}</td>
         <td className="cell">{issue.created.toDateString()}</td>
         <td className="cell">{issue.effort}</td>
@@ -139,7 +146,6 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
   return (
     <TableWrap>
       <StyledTable
-        striped
         hover
         responsive
       >
@@ -164,7 +170,7 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
 // ---------------- styles --------------------
 
 const TableWrap = styled.div`
-  box-shadow: 0px 0px 3px 0px rgba(32, 29, 122, 0.71);
+  border: 0.5px solid #d6d6d6;
   border-radius: 1rem;
   padding: 1.5rem;
   margin: 0 auto;
@@ -185,9 +191,19 @@ const StyledTable = styled(Table)`
 
   .cell {
     text-align: center;
-    border-top: transparent;
+    border-top: 0.5px solid #e3e3e3;
+    color: #636363;
     padding-top: 1rem;
+    padding-bottom: 1rem;
   }
+`;
+
+const StatusWrapper = styled.div`
+  background-color: ${props => props.color};
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+  border-radius: 0.5rem;
+  margin: 0 auto;
 `;
 
 const ActionFlex = styled.div`
