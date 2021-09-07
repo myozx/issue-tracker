@@ -34,6 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.1",
     "serialize-javascript": "^5.0.1",
+    "styled-components": "^5.3.1",
     "url-search-params-polyfill": "^8.1.1",
     "uuid": "^8.3.2"
   },

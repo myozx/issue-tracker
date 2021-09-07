@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import 'url-search-params-polyfill';
 import { Panel, Pagination, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -342,37 +343,44 @@ class IssueList extends React.Component {
     return (
       <React.Fragment>
         {/* Filter panel */}
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title toggle>Filter</Panel.Title>
-          </Panel.Heading>
-          <Panel.Body collapsible>
-            <IssueFilter urlBase="/issues" />
-          </Panel.Body>
-        </Panel>
-        <hr />
-        {/* table of issue list */}
-        <IssueTable
-          issues={issues}
-          closeIssue={this.closeIssue}
-          deleteIssue={this.deleteIssue}
-        />
-        {/* issue detail */}
-        <IssueDetail issue={selectedIssue} />
-        {/* pagination links */}
-        <Pagination>
-          <PageLink params={params} page={prevSection}>
-            <Pagination.Item>{'<'}</Pagination.Item>
-          </PageLink>
-          {items}
-          <PageLink params={params} page={nextSection}>
-            <Pagination.Item>{'>'}</Pagination.Item>
-          </PageLink>
-        </Pagination>
+        <ContentWrap>
+          <Panel>
+            <Panel.Heading>
+              <Panel.Title toggle>Filter</Panel.Title>
+            </Panel.Heading>
+            <Panel.Body collapsible>
+              <IssueFilter urlBase="/issues" />
+            </Panel.Body>
+          </Panel>
+          <hr />
+          {/* table of issue list */}
+          <IssueTable
+            issues={issues}
+            closeIssue={this.closeIssue}
+            deleteIssue={this.deleteIssue}
+          />
+          {/* issue detail */}
+          <IssueDetail issue={selectedIssue} />
+          {/* pagination links */}
+          <Pagination>
+            <PageLink params={params} page={prevSection}>
+              <Pagination.Item>{'<'}</Pagination.Item>
+            </PageLink>
+            {items}
+            <PageLink params={params} page={nextSection}>
+              <Pagination.Item>{'>'}</Pagination.Item>
+            </PageLink>
+          </Pagination>
+        </ContentWrap>
       </React.Fragment>
     );
   }
 }
+
+const ContentWrap = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+`;
 
 const IssueListWithToast = withToast(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;

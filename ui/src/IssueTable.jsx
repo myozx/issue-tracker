@@ -6,6 +6,7 @@ import {
   OverlayTrigger,
   Table,
 } from 'react-bootstrap';
+import styled from 'styled-components';
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router-dom';
 import UserContext from './UserContext.js';
@@ -51,49 +52,51 @@ class IssueRowPlain extends React.Component {
 
     const tableRow = (
       <tr>
-        <td>{issue.id}</td>
-        <td>{issue.status}</td>
-        <td>{issue.owner}</td>
-        <td>{issue.created.toDateString()}</td>
-        <td>{issue.effort}</td>
-        <td>{issue.due ? issue.due.toDateString() : ' '}</td>
-        <td>{issue.title}</td>
-        <td>
-          <LinkContainer to={`/edit/${issue.id}`}>
-            <OverlayTrigger delayShow={1000} overlay={editTooltip}>
-              <Button bsSize="xsmall">
-                <Glyphicon glyph="edit" />
+        <td className="cell">{issue.id}</td>
+        <td className="cell">{issue.status}</td>
+        <td className="cell">{issue.owner}</td>
+        <td className="cell">{issue.created.toDateString()}</td>
+        <td className="cell">{issue.effort}</td>
+        <td className="cell">{issue.due ? issue.due.toDateString() : ' '}</td>
+        <td className="cell">{issue.title}</td>
+        <td className="cell">
+          <ActionFlex>
+            <LinkContainer to={`/edit/${issue.id}`}>
+              <OverlayTrigger delayShow={1000} overlay={editTooltip}>
+                <Button bsSize="xsmall">
+                  <Glyphicon glyph="edit" />
+                </Button>
+              </OverlayTrigger>
+            </LinkContainer>
+            <OverlayTrigger
+              delayShow={1000}
+              overlay={closeTooltip}
+              placement="top"
+            >
+              <Button
+                disabled={!user.signedIn}
+                bsSize="xsmall"
+                type="button"
+                onClick={this.onClose}
+              >
+                <Glyphicon glyph="remove" />
               </Button>
             </OverlayTrigger>
-          </LinkContainer>
-          <OverlayTrigger
-            delayShow={1000}
-            overlay={closeTooltip}
-            placement="top"
-          >
-            <Button
-              disabled={!user.signedIn}
-              bsSize="xsmall"
-              type="button"
-              onClick={this.onClose}
+            <OverlayTrigger
+              delayShow={1000}
+              overlay={deleteTooltip}
+              placement="top"
             >
-              <Glyphicon glyph="remove" />
-            </Button>
-          </OverlayTrigger>
-          <OverlayTrigger
-            delayShow={1000}
-            overlay={deleteTooltip}
-            placement="top"
-          >
-            <Button
-              disabled={!user.signedIn}
-              type="button"
-              bsSize="xsmall"
-              onClick={this.onDelete}
-            >
-              <Glyphicon glyph="trash" />
-            </Button>
-          </OverlayTrigger>
+              <Button
+                disabled={!user.signedIn}
+                type="button"
+                bsSize="xsmall"
+                onClick={this.onDelete}
+              >
+                <Glyphicon glyph="trash" />
+              </Button>
+            </OverlayTrigger>
+          </ActionFlex>
         </td>
       </tr>
     );
@@ -134,20 +137,60 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
   ));
 
   return (
-    <Table bordered condensed hover responsive>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Status</th>
-          <th>Owner</th>
-          <th>Created</th>
-          <th>Effort</th>
-          <th>Due Date</th>
-          <th>Title</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>{issueRows}</tbody>
-    </Table>
+    <TableWrap>
+      <StyledTable
+        striped
+        hover
+        responsive
+      >
+        <thead>
+          <tr className="amHeadRow">
+            <th className="amHead">ID</th>
+            <th className="amHead">Status</th>
+            <th className="amHead">Owner</th>
+            <th className="amHead">Created</th>
+            <th className="amHead">Effort</th>
+            <th className="amHead">Due Date</th>
+            <th className="amHead">Title</th>
+            <th className="amHead">Action</th>
+          </tr>
+        </thead>
+        <tbody>{issueRows}</tbody>
+      </StyledTable>
+    </TableWrap>
   );
 }
+
+// ---------------- styles --------------------
+
+const TableWrap = styled.div`
+  box-shadow: 0px 0px 3px 0px rgba(32, 29, 122, 0.71);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 0 auto;
+`;
+
+const StyledTable = styled(Table)`
+  margin-bottom: 0px;
+
+  .amHeadRow {
+    cursor: initial;
+  }
+
+  .amHead {
+    text-align: center;
+    font-size: 1.4rem;
+    border-bottom: transparent;
+  }
+
+  .cell {
+    text-align: center;
+    border-top: transparent;
+    padding-top: 1rem;
+  }
+`;
+
+const ActionFlex = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
