@@ -1271,7 +1271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _templateObject;
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -1379,11 +1379,13 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
       // Array<Object>
       pages: pages,
       // Int
-      selectedIssue: selectedIssue // { [string]: any }
-
+      selectedIssue: selectedIssue,
+      // { [string]: any }
+      open: false
     };
     _this.closeIssue = _this.closeIssue.bind(_assertThisInitialized(_this));
     _this.deleteIssue = _this.deleteIssue.bind(_assertThisInitialized(_this));
+    _this.togglePanel = _this.togglePanel.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1416,6 +1418,16 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       this.setState({});
+    }
+  }, {
+    key: "togglePanel",
+    value: function togglePanel() {
+      this.setState(function (state) {
+        var open = !state.open;
+        return {
+          open: open
+        };
+      });
     } // handler function for clicking on close issue btn in IssueRow
 
   }, {
@@ -1649,12 +1661,14 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var issues = this.state.issues;
+      var _this$state = this.state,
+          issues = _this$state.issues,
+          open = _this$state.open;
       if (issues == null) return null; // -------- pagination logics and creating pagination links ----------
 
-      var _this$state = this.state,
-          selectedIssue = _this$state.selectedIssue,
-          pages = _this$state.pages;
+      var _this$state2 = this.state,
+          selectedIssue = _this$state2.selectedIssue,
+          pages = _this$state2.pages;
       var search = this.props.location.search;
       var params = new URLSearchParams(search);
       var page = parseInt(params.get('page'), 10); // if page is NaN, it signifies initial page load, where it should be
@@ -1679,25 +1693,32 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Item, null, i)));
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Title, {
-        toggle: true
-      }, "Filter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Body, {
-        collapsible: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+        onClick: this.togglePanel
+      }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default, {
+        style: {
+          display: open ? 'block' : 'none'
+        },
+        expanded: open,
+        onToggle: this.togglePanel,
+        defaultExpanded: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
         urlBase: "/issues"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {
         issues: issues,
         closeIssue: this.closeIssue,
         deleteIssue: this.deleteIssue
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
         issue: selectedIssue
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(PageLink, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(PaginationWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default, {
+        className: "paginationam"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(PageLink, {
         params: params,
         page: prevSection
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Item, null, '<')), items, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(PageLink, {
         params: params,
         page: nextSection
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Item, null, '>')))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Item, null, '>'))))));
     }
   }], [{
     key: "fetchData",
@@ -1767,7 +1788,8 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
   return IssueList;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-var ContentWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  max-width: 1280px;\n  margin: 0 auto;\n"])));
+var ContentWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  max-width: 1280px;\n  margin: 0 auto;\n  }\n"])));
+var PaginationWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex; \n  justify-content: center;\n  width: 100%;\n"])));
 var IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_8__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueListWithToast);

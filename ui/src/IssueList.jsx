@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'url-search-params-polyfill';
-import { Panel, Pagination, Button } from 'react-bootstrap';
+import {
+  Panel,
+  Pagination,
+  Button,
+} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
@@ -126,10 +130,12 @@ class IssueList extends React.Component {
       issues, // Array<Object>
       pages, // Int
       selectedIssue, // { [string]: any }
+      open: false,
     };
 
     this.closeIssue = this.closeIssue.bind(this);
     this.deleteIssue = this.deleteIssue.bind(this);
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   componentDidMount() {
@@ -168,6 +174,13 @@ class IssueList extends React.Component {
 
   componentWillUnmount() {
     this.setState({});
+  }
+
+  togglePanel() {
+    this.setState((state) => {
+      const open = !state.open;
+      return { open };
+    });
   }
 
   // handler function for clicking on close issue btn in IssueRow
@@ -307,7 +320,7 @@ class IssueList extends React.Component {
   }
 
   render() {
-    const { issues } = this.state;
+    const { issues, open } = this.state;
     if (issues == null) return null;
 
     // -------- pagination logics and creating pagination links ----------
@@ -344,13 +357,21 @@ class IssueList extends React.Component {
       <React.Fragment>
         {/* Filter panel */}
         <ContentWrap>
-          <Panel>
-            <Panel.Heading>
-              <Panel.Title toggle>Filter</Panel.Title>
-            </Panel.Heading>
-            <Panel.Body collapsible>
-              <IssueFilter urlBase="/issues" />
-            </Panel.Body>
+          <Button onClick={this.togglePanel}>
+            Filter Issues
+          </Button>
+          {/* <br /> */}
+          <Panel
+            style={{ display: open ? 'block' : 'none' }}
+            expanded={open}
+            onToggle={this.togglePanel}
+            defaultExpanded
+          >
+            <Panel.Collapse>
+              <Panel.Body>
+                <IssueFilter urlBase="/issues" />
+              </Panel.Body>
+            </Panel.Collapse>
           </Panel>
           <hr />
           {/* table of issue list */}
@@ -362,15 +383,17 @@ class IssueList extends React.Component {
           {/* issue detail */}
           <IssueDetail issue={selectedIssue} />
           {/* pagination links */}
-          <Pagination>
-            <PageLink params={params} page={prevSection}>
-              <Pagination.Item>{'<'}</Pagination.Item>
-            </PageLink>
-            {items}
-            <PageLink params={params} page={nextSection}>
-              <Pagination.Item>{'>'}</Pagination.Item>
-            </PageLink>
-          </Pagination>
+          <PaginationWrap>
+            <Pagination className="paginationam">
+              <PageLink params={params} page={prevSection}>
+                <Pagination.Item>{'<'}</Pagination.Item>
+              </PageLink>
+              {items}
+              <PageLink params={params} page={nextSection}>
+                <Pagination.Item>{'>'}</Pagination.Item>
+              </PageLink>
+            </Pagination>
+          </PaginationWrap>
         </ContentWrap>
       </React.Fragment>
     );
@@ -380,6 +403,13 @@ class IssueList extends React.Component {
 const ContentWrap = styled.div`
   max-width: 1280px;
   margin: 0 auto;
+  }
+`;
+
+const PaginationWrap = styled.div`
+  display: flex; 
+  justify-content: center;
+  width: 100%;
 `;
 
 const IssueListWithToast = withToast(IssueList);

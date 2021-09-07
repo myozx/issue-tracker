@@ -1196,11 +1196,13 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       // Array<Object>
       pages,
       // Int
-      selectedIssue // { [string]: any }
-
+      selectedIssue,
+      // { [string]: any }
+      open: false
     };
     this.closeIssue = this.closeIssue.bind(this);
     this.deleteIssue = this.deleteIssue.bind(this);
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   componentDidMount() {
@@ -1245,6 +1247,15 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
   componentWillUnmount() {
     this.setState({});
+  }
+
+  togglePanel() {
+    this.setState(state => {
+      const open = !state.open;
+      return {
+        open
+      };
+    });
   } // handler function for clicking on close issue btn in IssueRow
 
 
@@ -1407,7 +1418,8 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
   render() {
     const {
-      issues
+      issues,
+      open
     } = this.state;
     if (issues == null) return null; // -------- pagination logics and creating pagination links ----------
 
@@ -1443,25 +1455,32 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, i)));
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, {
-      toggle: true
-    }, "Filter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, {
-      collapsible: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      onClick: this.togglePanel
+    }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, {
+      style: {
+        display: open ? 'block' : 'none'
+      },
+      expanded: open,
+      onToggle: this.togglePanel,
+      defaultExpanded: true
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
       urlBase: "/issues"
-    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
+    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
       issues: issues,
       closeIssue: this.closeIssue,
       deleteIssue: this.deleteIssue
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_7__.default, {
       issue: selectedIssue
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PaginationWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination, {
+      className: "paginationam"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
       params: params,
       page: prevSection
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '<')), items, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
       params: params,
       page: nextSection
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '>')))));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '>'))))));
   }
 
 }
@@ -1469,6 +1488,12 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 const ContentWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default().div)`
   max-width: 1280px;
   margin: 0 auto;
+  }
+`;
+const PaginationWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default().div)`
+  display: flex; 
+  justify-content: center;
+  width: 100%;
 `;
 const IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
