@@ -19,7 +19,17 @@ export default function NavBar({ user, onUserChange }) {
     <StyledNavbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <p style={{ color: 'white', fontWeight: 'bold' }}>Issue Tracker</p>
+          <div style={{ display: 'flex' }}>
+            <img src="img/logo.png" alt="logo" width="20px" height="20px" />
+            <p style={{
+              color: 'white',
+              fontWeight: 'bold',
+              marginLeft: '8px',
+            }}
+            >
+              Issue Tracker
+            </p>
+          </div>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
