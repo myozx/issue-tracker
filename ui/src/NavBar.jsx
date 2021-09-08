@@ -19,17 +19,13 @@ export default function NavBar({ user, onUserChange }) {
     <StyledNavbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <div style={{ display: 'flex' }}>
-            <img src="img/logo.png" alt="logo" width="20px" height="20px" />
-            <p style={{
-              color: 'white',
-              fontWeight: 'bold',
-              marginLeft: '8px',
-            }}
-            >
-              Issue Tracker
-            </p>
-          </div>
+          <p style={{
+            color: 'white',
+            fontWeight: 'bold',
+          }}
+          >
+            ⚝ Issue Tracker
+          </p>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
@@ -75,6 +71,7 @@ const StyledNavbar = styled(Navbar)`
   background-color: #383b4a;
   border-radius: 0px;
   border-color: transparent;
+  margin-bottom: 30px;
   
   /* for home button */
   .navbar-nav>li>a, .navbar-nav>li>a:focus {

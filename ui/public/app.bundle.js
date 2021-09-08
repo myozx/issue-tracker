@@ -2078,25 +2078,29 @@ var IssueRowPlain = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(IssueRowPlain);
 
+  /**
+    * const IssueRow = withRouter((props) => {...});
+    * Represents each row of issue in a IssueTable.
+    * Props: issue: {[string]: any}, search: String
+    *        closeIssue: Func(index), index: Int
+    *        deleteIssue: Func(index)
+    * Parent: IssueTable
+    */
   function IssueRowPlain() {
+    var _this;
+
     _classCallCheck(this, IssueRowPlain);
 
-    return _super.apply(this, arguments);
-  }
+    _this = _super.call(this);
+    _this.onClose = _this.onClose.bind(_assertThisInitialized(_this));
+    _this.onDelete = _this.onDelete.bind(_assertThisInitialized(_this));
+    return _this;
+  } // handles the event of click on close issue button in each row
+
 
   _createClass(IssueRowPlain, [{
     key: "onClose",
-    value:
-    /**
-      * const IssueRow = withRouter((props) => {...});
-      * Represents each row of issue in a IssueTable.
-      * Props: issue: {[string]: any}, search: String
-      *        closeIssue: Func(index), index: Int
-      *        deleteIssue: Func(index)
-      * Parent: IssueTable
-      */
-    // handles the event of click on close issue button in each row
-    function onClose(e) {
+    value: function onClose(e) {
       e.preventDefault();
       var _this$props = this.props,
           closeIssue = _this$props.closeIssue,
@@ -2292,22 +2296,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 function NavBar(_ref) {
   var user = _ref.user,
       onUserChange = _ref.onUserChange;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(StyledNavbar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    style: {
-      display: 'flex'
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "img/logo.png",
-    alt: "logo",
-    width: "20px",
-    height: "20px"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(StyledNavbar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     style: {
       color: 'white',
-      fontWeight: 'bold',
-      marginLeft: '8px'
+      fontWeight: 'bold'
     }
-  }, "Issue Tracker")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
+  }, "\u269D Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
     exact: true,
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
@@ -2334,7 +2328,7 @@ function NavBar(_ref) {
     href: "/about"
   }, "About"))));
 }
-var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
+var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  margin-bottom: 30px;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
 
 /***/ }),
 

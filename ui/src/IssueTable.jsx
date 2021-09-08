@@ -23,6 +23,11 @@ class IssueRowPlain extends React.Component {
     *        deleteIssue: Func(index)
     * Parent: IssueTable
     */
+  constructor() {
+    super();
+    this.onClose = this.onClose.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+  }
 
   // handles the event of click on close issue button in each row
   onClose(e) {

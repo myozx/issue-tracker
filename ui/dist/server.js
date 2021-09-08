@@ -1724,7 +1724,13 @@ class IssueRowPlain extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
     *        deleteIssue: Func(index)
     * Parent: IssueTable
     */
-  // handles the event of click on close issue button in each row
+  constructor() {
+    super();
+    this.onClose = this.onClose.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+  } // handles the event of click on close issue button in each row
+
+
   onClose(e) {
     e.preventDefault();
     const {
@@ -1948,22 +1954,12 @@ function NavBar({
   user,
   onUserChange
 }) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledNavbar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Navbar.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Navbar.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    style: {
-      display: 'flex'
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: "img/logo.png",
-    alt: "logo",
-    width: "20px",
-    height: "20px"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledNavbar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Navbar.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Navbar.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     style: {
       color: 'white',
-      fontWeight: 'bold',
-      marginLeft: '8px'
+      fontWeight: 'bold'
     }
-  }, "Issue Tracker")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
+  }, "\u269D Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
     exact: true,
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
@@ -1996,6 +1992,7 @@ const StyledNavbar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(re
   background-color: #383b4a;
   border-radius: 0px;
   border-color: transparent;
+  margin-bottom: 30px;
   
   /* for home button */
   .navbar-nav>li>a, .navbar-nav>li>a:focus {
