@@ -1,6 +1,7 @@
 import 'url-search-params-polyfill';
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
+import styled from 'styled-components';
 import { Panel, Table } from 'react-bootstrap';
 import graphQLFetch from './graphQLFetch.js';
 import IssueFilter from './IssueFilter.jsx';
@@ -73,44 +74,85 @@ class IssueReport extends React.Component {
 
     const headerColumns = (
       statuses.map(status => (
-        <th key={status}>{status}</th>
+        <th className="axHead" key={status}>{status}</th>
       ))
     );
 
     const statRows = stats.map(counts => (
       <tr key={counts.owner}>
-        <td>{counts.owner}</td>
+        <td className="rcell">{counts.owner}</td>
         {statuses.map(status => (
-          <td key={uuidv4()}>{counts[status] ? counts[status] : 0}</td>
+          <td className="rcell" key={uuidv4()}>
+            {counts[status] ? counts[status] : 0}
+          </td>
         ))}
       </tr>
     ));
 
     return (
       <>
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title toggle>Filter</Panel.Title>
-          </Panel.Heading>
-          <Panel.Body collapsible>
-            <IssueFilter urlBase="/report" />
-          </Panel.Body>
-        </Panel>
-        <Table bordered condensed hover responsive>
-          <thead>
-            <tr>
-              <th />
-              {headerColumns}
-            </tr>
-          </thead>
-          <tbody>
-            {statRows}
-          </tbody>
-        </Table>
+        <ContentWrap>
+          <Panel>
+            <Panel.Heading>
+              <Panel.Title toggle>Filter</Panel.Title>
+            </Panel.Heading>
+            <Panel.Body collapsible>
+              <IssueFilter urlBase="/report" />
+            </Panel.Body>
+          </Panel>
+          <TableWrap>
+            <StyledTable condensed responsive>
+              <thead>
+                <tr className="axHeadRow">
+                  <th className="axHead">User \ Status</th>
+                  {headerColumns}
+                </tr>
+              </thead>
+              <tbody>
+                {statRows}
+              </tbody>
+            </StyledTable>
+          </TableWrap>
+        </ContentWrap>
       </>
     );
   }
 }
+
+const ContentWrap = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+  }
+`;
+
+const TableWrap = styled.div`
+  border: 0.5px solid #d6d6d6;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 0 auto;
+`;
+
+const StyledTable = styled(Table)`
+  margin-bottom: 0px;
+
+  .axHeadRow {
+    cursor: initial;
+  }
+
+  .axHead {
+    text-align: center;
+    font-size: 1.4rem;
+    border-bottom: transparent;
+  }
+
+  .rcell {
+    text-align: center;
+    border-top: 0.5px solid #e3e3e3;
+    color: #383b4a;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+`;
 
 const IssueReportWithToast = withToast(IssueReport);
 IssueReportWithToast.fetchData = IssueReport.fetchData;

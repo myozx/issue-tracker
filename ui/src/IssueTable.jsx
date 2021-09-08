@@ -192,7 +192,7 @@ const StyledTable = styled(Table)`
   .cell {
     text-align: center;
     border-top: 0.5px solid #e3e3e3;
-    color: #636363;
+    color: #383b4a;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }

@@ -97,7 +97,6 @@ const StyledNavbar = styled(Navbar)`
   .navbar-nav>.active>a:hover {
     color: white;
     background-color: #5b5e6f75;
-    border: 1px solid #5b5e6f75;
     border-radius: 7px;
   }
 `;

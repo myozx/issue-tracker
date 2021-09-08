@@ -1810,13 +1810,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Panel.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Table.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Table.js");
 /* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 /* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
 /* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -1841,6 +1846,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -1929,30 +1935,36 @@ var IssueReport = /*#__PURE__*/function (_React$Component) {
       if (stats === null) return null;
       var headerColumns = statuses.map(function (status) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("th", {
+          className: "axHead",
           key: status
         }, status);
       });
       var statRows = stats.map(function (counts) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("tr", {
           key: counts.owner
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("td", null, counts.owner), statuses.map(function (status) {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("td", {
+          className: "rcell"
+        }, counts.owner), statuses.map(function (status) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("td", {
+            className: "rcell",
             key: (0,uuid__WEBPACK_IMPORTED_MODULE_6__.default)()
           }, counts[status] ? counts[status] : 0);
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Title, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Title, {
         toggle: true
       }, "Filter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default.Body, {
         collapsible: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
         urlBase: "/report"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
-        bordered: true,
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(TableWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(StyledTable, {
         condensed: true,
-        hover: true,
         responsive: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("th", null), headerColumns)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("tbody", null, statRows)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("tr", {
+        className: "axHeadRow"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("th", {
+        className: "axHead"
+      }, "User \\ Status"), headerColumns)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("tbody", null, statRows)))));
     }
   }], [{
     key: "fetchData",
@@ -1997,6 +2009,9 @@ var IssueReport = /*#__PURE__*/function (_React$Component) {
   return IssueReport;
 }(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
+var ContentWrap = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  max-width: 960px;\n  margin: 0 auto;\n  }\n"])));
+var TableWrap = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  border: 0.5px solid #d6d6d6;\n  border-radius: 1rem;\n  padding: 1.5rem;\n  margin: 0 auto;\n"])));
+var StyledTable = (0,styled_components__WEBPACK_IMPORTED_MODULE_8__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  margin-bottom: 0px;\n\n  .axHeadRow {\n    cursor: initial;\n  }\n\n  .axHead {\n    text-align: center;\n    font-size: 1.4rem;\n    border-bottom: transparent;\n  }\n\n  .rcell {\n    text-align: center;\n    border-top: 0.5px solid #e3e3e3;\n    color: #383b4a;\n    padding-top: 1rem;\n    padding-bottom: 1rem;\n  }\n"])));
 var IssueReportWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_5__.default)(IssueReport);
 IssueReportWithToast.fetchData = IssueReport.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueReportWithToast);
@@ -2232,7 +2247,7 @@ function IssueTable(_ref) {
 } // ---------------- styles --------------------
 
 var TableWrap = styled_components__WEBPACK_IMPORTED_MODULE_9__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border: 0.5px solid #d6d6d6;\n  border-radius: 1rem;\n  padding: 1.5rem;\n  margin: 0 auto;\n"])));
-var StyledTable = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  margin-bottom: 0px;\n\n  .amHeadRow {\n    cursor: initial;\n  }\n\n  .amHead {\n    text-align: center;\n    font-size: 1.4rem;\n    border-bottom: transparent;\n  }\n\n  .cell {\n    text-align: center;\n    border-top: 0.5px solid #e3e3e3;\n    color: #636363;\n    padding-top: 1rem;\n    padding-bottom: 1rem;\n  }\n"])));
+var StyledTable = (0,styled_components__WEBPACK_IMPORTED_MODULE_9__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  margin-bottom: 0px;\n\n  .amHeadRow {\n    cursor: initial;\n  }\n\n  .amHead {\n    text-align: center;\n    font-size: 1.4rem;\n    border-bottom: transparent;\n  }\n\n  .cell {\n    text-align: center;\n    border-top: 0.5px solid #e3e3e3;\n    color: #383b4a;\n    padding-top: 1rem;\n    padding-bottom: 1rem;\n  }\n"])));
 var StatusWrapper = styled_components__WEBPACK_IMPORTED_MODULE_9__.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  background-color: ", ";\n  padding-top: 0.5px;\n  padding-bottom: 0.5px;\n  border-radius: 0.5rem;\n  margin: 0 auto;\n"])), function (props) {
   return props.color;
 });
@@ -2309,7 +2324,7 @@ function NavBar(_ref) {
     href: "/about"
   }, "About"))));
 }
-var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border: 1px solid #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
+var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
 
 /***/ }),
 
