@@ -1,9 +1,36 @@
 import React from 'react';
+import { Glyphicon } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import AsyncSelect from 'react-select/async';
 import graphQLFetch from './graphQLFetch.js';
 import withToast from './withToast.jsx';
 
+const colourStyles = {
+  control: styles => ({
+    ...styles,
+    backgroundColor: '#5b5e6f4a',
+    borderColor: '#666a77',
+    cursor: 'text',
+  }),
+  input: styles => ({
+    ...styles,
+    color: 'white',
+  }),
+  placeholder: styles => ({
+    ...styles,
+    color: 'white',
+  }),
+};
+
+function PlaceholderComp() {
+  return (
+    <>
+      <Glyphicon glyph="search" />
+      {'   '}
+      <span>Search for issues...</span>
+    </>
+  );
+}
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -49,10 +76,11 @@ class Search extends React.Component {
         <AsyncSelect
           instanceId="search-select"
           value=""
-          placeholder="Search for issues..."
+          placeholder={<PlaceholderComp />}
           onChange={this.handleChange}
           loadOptions={this.loadOptions}
           components={{ DropdownIndicator: null }}
+          styles={colourStyles}
         />
       </>
     );

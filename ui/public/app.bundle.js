@@ -2619,7 +2619,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Glyphicon.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_select_async__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select/async */ "./node_modules/react-select/async/dist/react-select.esm.js");
 /* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 /* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
@@ -2649,11 +2650,43 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
+
+
+var colourStyles = {
+  control: function control(styles) {
+    return _objectSpread(_objectSpread({}, styles), {}, {
+      backgroundColor: '#5b5e6f4a',
+      borderColor: '#666a77',
+      cursor: 'text'
+    });
+  },
+  input: function input(styles) {
+    return _objectSpread(_objectSpread({}, styles), {}, {
+      color: 'white'
+    });
+  },
+  placeholder: function placeholder(styles) {
+    return _objectSpread(_objectSpread({}, styles), {}, {
+      color: 'white'
+    });
+  }
+};
+
+function PlaceholderComp() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.default, {
+    glyph: "search"
+  }), '   ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Search for issues..."));
+}
 
 var Search = /*#__PURE__*/function (_React$Component) {
   _inherits(Search, _React$Component);
@@ -2742,12 +2775,13 @@ var Search = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_select_async__WEBPACK_IMPORTED_MODULE_1__.default, {
         instanceId: "search-select",
         value: "",
-        placeholder: "Search for issues...",
+        placeholder: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(PlaceholderComp, null),
         onChange: this.handleChange,
         loadOptions: this.loadOptions,
         components: {
           DropdownIndicator: null
-        }
+        },
+        styles: colourStyles
       }));
     }
   }]);
@@ -2755,7 +2789,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
   return Search;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.withRouter)((0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_3__.default)(Search)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.withRouter)((0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_3__.default)(Search)));
 
 /***/ }),
 

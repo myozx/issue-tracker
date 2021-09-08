@@ -5,8 +5,8 @@ import {
   NavItem,
   NavDropdown,
   MenuItem,
-  Glyphicon,
   Col,
+  Glyphicon,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components';

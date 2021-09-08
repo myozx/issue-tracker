@@ -2153,17 +2153,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_select_async__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-select/async */ "react-select/async");
-/* harmony import */ var react_select_async__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_select_async__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_select_async__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-select/async */ "react-select/async");
+/* harmony import */ var react_select_async__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_select_async__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
 
 
 
 
 
+
+const colourStyles = {
+  control: styles => ({ ...styles,
+    backgroundColor: '#5b5e6f4a',
+    borderColor: '#666a77',
+    cursor: 'text'
+  }),
+  input: styles => ({ ...styles,
+    color: 'white'
+  }),
+  placeholder: styles => ({ ...styles,
+    color: 'white'
+  })
+};
+
+function PlaceholderComp() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Glyphicon, {
+    glyph: "search"
+  }), '   ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Search for issues..."));
+}
 
 class Search extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   constructor(props) {
@@ -2185,7 +2207,7 @@ class Search extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     const {
       showError
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_3__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, {
       search: inputValue
     }, showError); // returns a list of options<Object> array. {label: "", value: ""}
 
@@ -2210,21 +2232,22 @@ class Search extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   }
 
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react_select_async__WEBPACK_IMPORTED_MODULE_2___default()), {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react_select_async__WEBPACK_IMPORTED_MODULE_3___default()), {
       instanceId: "search-select",
       value: "",
-      placeholder: "Search for issues...",
+      placeholder: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PlaceholderComp, null),
       onChange: this.handleChange,
       loadOptions: this.loadOptions,
       components: {
         DropdownIndicator: null
-      }
+      },
+      styles: colourStyles
     }));
   }
 
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.withRouter)((0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_4__.default)(Search)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.withRouter)((0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_5__.default)(Search)));
 
 /***/ }),
 
