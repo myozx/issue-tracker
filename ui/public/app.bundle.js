@@ -2263,7 +2263,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _IssueAddNavItem_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IssueAddNavItem.jsx */ "./src/IssueAddNavItem.jsx");
 /* harmony import */ var _Search_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Search.jsx */ "./src/Search.jsx");
 /* harmony import */ var _SignInNavItem_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SignInNavItem.jsx */ "./src/SignInNavItem.jsx");
-var _templateObject, _templateObject2;
+var _templateObject;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -2285,11 +2285,11 @@ function NavBar(_ref) {
   }, "Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
     exact: true,
     to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NavTextWrap, null, "Home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
     to: "/issues"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NavTextWrap, null, "Issue List"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, "Issue List")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__.LinkContainer, {
     to: "/report"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NavTextWrap, null, "Report")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__.default, null, "Report"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__.default, {
     sm: 4,
     md: 5
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Form, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Search_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
@@ -2309,8 +2309,7 @@ function NavBar(_ref) {
     href: "/about"
   }, "About"))));
 }
-var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    background-color: #5b5e6f75;\n    border: 1px solid #5b5e6f75;\n    border-radius: 7px;\n  }\n\n  .navbar-nav>.active>a:hover {\n    background-color: #5b5e6f75;\n    border: 1px solid #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
-var NavTextWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.span(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  color: white;\n"])));
+var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border: 1px solid #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
 
 /***/ }),
 
@@ -2677,7 +2676,7 @@ var colourStyles = {
   },
   placeholder: function placeholder(styles) {
     return _objectSpread(_objectSpread({}, styles), {}, {
-      color: 'white'
+      color: '#adafb9'
     });
   }
 };
@@ -3051,7 +3050,9 @@ var SignInNavItem = /*#__PURE__*/function (_React$Component) {
           loginErrMsg = _this$state.loginErrMsg;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
         onClick: this.showModal
-      }, "Sign in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "mgSignin"
+      }, "Sign in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__.default, {
         keyboard: true,
         show: showingModal,
         onHide: this.hideModal,

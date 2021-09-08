@@ -1915,11 +1915,11 @@ function NavBar({
   }, "Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
     exact: true,
     to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavTextWrap, null, "Home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
     to: "/issues"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavTextWrap, null, "Issue List"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, "Issue List")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
     to: "/report"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavTextWrap, null, "Report")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Col, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, "Report"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Col, {
     sm: 4,
     md: 5
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Navbar.Form, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Search_jsx__WEBPACK_IMPORTED_MODULE_5__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, {
@@ -1945,21 +1945,41 @@ const StyledNavbar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(re
   background-color: #383b4a;
   border-radius: 0px;
   border-color: transparent;
-
-  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
-    background-color: #5b5e6f75;
-    border: 1px solid #5b5e6f75;
+  
+  /* for home button */
+  .navbar-nav>li>a, .navbar-nav>li>a:focus {
+    color: white;
+  }
+  
+  /* for sign in button */
+  .navbar-nav>li>a:hover {
+    color: white;
+    background-color: #474b5b;
     border-radius: 7px;
+  }
+
+  /* ----- for about link ------ */
+  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,
+  .navbar-nav>.open>a:hover {
+    color: white;
+    background-color: #474b5b;
+    border-radius: 7px;
+  }
+
+  /* ----- for navigation links ------ */
+  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
+    color: white;
+    font-weight: bold;
+    background-color: #383b4a;
+    text-decoration: underline;
   }
 
   .navbar-nav>.active>a:hover {
+    color: white;
     background-color: #5b5e6f75;
     border: 1px solid #5b5e6f75;
     border-radius: 7px;
   }
-`;
-const NavTextWrap = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().span)`
-  color: white;
 `;
 
 /***/ }),
@@ -2177,7 +2197,7 @@ const colourStyles = {
     color: 'white'
   }),
   placeholder: styles => ({ ...styles,
-    color: 'white'
+    color: '#adafb9'
   })
 };
 
@@ -2422,7 +2442,9 @@ class SignInNavItem extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
     } = this.state;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, {
       onClick: this.showModal
-    }, "Sign in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+      className: "mgSignin"
+    }, "Sign in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal, {
       keyboard: true,
       show: showingModal,
       onHide: this.hideModal,

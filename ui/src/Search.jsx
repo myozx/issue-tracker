@@ -18,7 +18,7 @@ const colourStyles = {
   }),
   placeholder: styles => ({
     ...styles,
-    color: 'white',
+    color: '#adafb9',
   }),
 };
 

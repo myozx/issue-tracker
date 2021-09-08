@@ -25,19 +25,17 @@ export default function NavBar({ user, onUserChange }) {
       <Nav>
         <LinkContainer exact to="/">
           <NavItem>
-            <NavTextWrap>
-              Home
-            </NavTextWrap>
+            Home
           </NavItem>
         </LinkContainer>
         <LinkContainer to="/issues">
           <NavItem>
-            <NavTextWrap>Issue List</NavTextWrap>
+            Issue List
           </NavItem>
         </LinkContainer>
         <LinkContainer to="/report">
           <NavItem>
-            <NavTextWrap>Report</NavTextWrap>
+            Report
           </NavItem>
         </LinkContainer>
       </Nav>
@@ -67,20 +65,39 @@ const StyledNavbar = styled(Navbar)`
   background-color: #383b4a;
   border-radius: 0px;
   border-color: transparent;
-
-  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
-    background-color: #5b5e6f75;
-    border: 1px solid #5b5e6f75;
+  
+  /* for home button */
+  .navbar-nav>li>a, .navbar-nav>li>a:focus {
+    color: white;
+  }
+  
+  /* for sign in button */
+  .navbar-nav>li>a:hover {
+    color: white;
+    background-color: #474b5b;
     border-radius: 7px;
+  }
+
+  /* ----- for about link ------ */
+  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,
+  .navbar-nav>.open>a:hover {
+    color: white;
+    background-color: #474b5b;
+    border-radius: 7px;
+  }
+
+  /* ----- for navigation links ------ */
+  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
+    color: white;
+    font-weight: bold;
+    background-color: #383b4a;
+    text-decoration: underline;
   }
 
   .navbar-nav>.active>a:hover {
+    color: white;
     background-color: #5b5e6f75;
     border: 1px solid #5b5e6f75;
     border-radius: 7px;
   }
-`;
-
-const NavTextWrap = styled.span`
-  color: white;
 `;

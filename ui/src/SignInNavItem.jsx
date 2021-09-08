@@ -123,7 +123,7 @@ class SignInNavItem extends React.Component {
     return (
       <>
         <NavItem onClick={this.showModal}>
-          Sign in
+          <span className="mgSignin">Sign in</span>
         </NavItem>
         <Modal keyboard show={showingModal} onHide={this.hideModal} bsSize="sm">
           <Modal.Header closeButton>
