@@ -127,7 +127,7 @@ class SignInNavItem extends React.Component {
         </NavItem>
         <Modal keyboard show={showingModal} onHide={this.hideModal} bsSize="sm">
           <Modal.Header closeButton>
-            <Modal.Title>Sign in</Modal.Title>
+            <Modal.Title>SIGN IN</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form name="signIn" onSubmit={this.signIn}>

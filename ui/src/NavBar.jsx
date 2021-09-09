@@ -24,7 +24,7 @@ export default function NavBar({ user, onUserChange }) {
             fontWeight: 'bold',
           }}
           >
-            ⚝ Issue Tracker
+            ⊚ Issue Tracker
           </p>
         </Navbar.Brand>
       </Navbar.Header>

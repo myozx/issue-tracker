@@ -410,6 +410,11 @@ const PaginationWrap = styled.div`
   display: flex; 
   justify-content: center;
   width: 100%;
+
+  .pagination>.active>a {
+    background-color: #636c99;
+    border-color: #a5d5ff;
+  }
 `;
 
 const IssueListWithToast = withToast(IssueList);

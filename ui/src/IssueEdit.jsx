@@ -12,6 +12,7 @@ import {
   Button,
   Alert,
 } from 'react-bootstrap';
+import styled from 'styled-components';
 import graphQLFetch from './graphQLFetch.js';
 import NumInput from './NumInput.jsx';
 import DateInput from './DateInput.jsx';
@@ -196,7 +197,7 @@ class IssueEdit extends React.Component {
     // --------- ui presentation -----------------
 
     return (
-      <Panel>
+      <StyledPanel>
         <Panel.Heading>
           <Panel.Title>{`Editing issue: ${id}`}</Panel.Title>
         </Panel.Heading>
@@ -345,10 +346,15 @@ class IssueEdit extends React.Component {
           {' | '}
           <Link to={`/edit/${id + 1}`}>Next</Link>
         </Panel.Footer>
-      </Panel>
+      </StyledPanel>
     );
   }
 }
+
+const StyledPanel = styled(Panel)`
+  max-width: 980px;
+  margin: 0 auto;
+`;
 
 IssueEdit.contextType = UserContext;
 const IssueEditWithToast = withToast(IssueEdit);

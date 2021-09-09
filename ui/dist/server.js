@@ -510,13 +510,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _NumInput_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NumInput.jsx */ "./src/NumInput.jsx");
-/* harmony import */ var _DateInput_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DateInput.jsx */ "./src/DateInput.jsx");
-/* harmony import */ var _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TextInput.jsx */ "./src/TextInput.jsx");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
-/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _NumInput_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NumInput.jsx */ "./src/NumInput.jsx");
+/* harmony import */ var _DateInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DateInput.jsx */ "./src/DateInput.jsx");
+/* harmony import */ var _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TextInput.jsx */ "./src/TextInput.jsx");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
+/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
+
 
 
 
@@ -548,7 +551,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         id
       }
     } = match;
-    const result = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, {
+    const result = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, {
       id: Number(id)
     }, showError);
     return result;
@@ -556,8 +559,8 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
   constructor(props) {
     super(props);
-    const issue = _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData.issue : null;
-    delete _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData;
+    const issue = _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData.issue : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData;
     this.state = {
       issue,
       // <Object>
@@ -664,7 +667,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       showError,
       showSuccess
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, {
       id,
       changes
     }, showError);
@@ -746,7 +749,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     } // --------- ui presentation -----------------
 
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, null, `Editing issue: ${id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Form, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledPanel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, null, `Editing issue: ${id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Form, {
       horizontal: true,
       onSubmit: this.handleSubmit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
@@ -778,7 +781,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
       name: "owner",
       value: issue.owner,
       onChange: this.onChange,
@@ -789,7 +792,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Effort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _NumInput_jsx__WEBPACK_IMPORTED_MODULE_5__.default,
+      componentClass: _NumInput_jsx__WEBPACK_IMPORTED_MODULE_6__.default,
       name: "effort",
       value: issue.effort,
       onChange: this.onChange,
@@ -802,7 +805,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Due"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _DateInput_jsx__WEBPACK_IMPORTED_MODULE_6__.default,
+      componentClass: _DateInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
       onValidityChange: this.onValidityChange,
       name: "due",
       value: issue.due,
@@ -814,7 +817,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
       size: 50,
       name: "title",
       value: issue.title,
@@ -826,7 +829,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
       tag: "textarea",
       rows: 4,
       cols: 50,
@@ -857,8 +860,12 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
 }
 
-IssueEdit.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_10__.default;
-const IssueEditWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_9__.default)(IssueEdit);
+const StyledPanel = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel)`
+  max-width: 980px;
+  margin: 0 auto;
+`;
+IssueEdit.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_11__.default;
+const IssueEditWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueEdit);
 IssueEditWithToast.fetchData = IssueEdit.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueEditWithToast);
 
@@ -1494,6 +1501,11 @@ const PaginationWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default()
   display: flex; 
   justify-content: center;
   width: 100%;
+
+  .pagination>.active>a {
+    background-color: #636c99;
+    border-color: #a5d5ff;
+  }
 `;
 const IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
@@ -1959,7 +1971,7 @@ function NavBar({
       color: 'white',
       fontWeight: 'bold'
     }
-  }, "\u269D Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
+  }, "\u229A Issue Tracker"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.Nav, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
     exact: true,
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__.NavItem, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__.LinkContainer, {
@@ -2498,7 +2510,7 @@ class SignInNavItem extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       bsSize: "sm"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Header, {
       closeButton: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Title, null, "Sign in")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Form, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Title, null, "SIGN IN")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Form, {
       name: "signIn",
       onSubmit: this.signIn
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.FormGroup, {
