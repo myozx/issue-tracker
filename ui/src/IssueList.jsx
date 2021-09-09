@@ -368,7 +368,7 @@ class IssueList extends React.Component {
                 glyph="info-sign"
               />
               <p style={{ color: 'orange', margin: '0' }}>
-                You might want to dummy sign in to edit and add issues.
+                You might want to sign in to edit and add issues.
               </p>
             </div>
           </div>

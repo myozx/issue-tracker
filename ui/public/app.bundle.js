@@ -145,8 +145,16 @@ var About = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var apiAbout = this.state.apiAbout;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Issue Tracker Version 0.9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, apiAbout));
+        className: "text-center container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "col-md-8 col-md-offset-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Issue Tracker Application"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "text-muted"
+      }, "An issue-tracking app which assists the team members to stay organized in a project with the issues or tasks towards the completion of it. Each member or the project leader could perform CRUD operations on the list of issues during the development process. Although the list of issues can be read by anyone, the remaining operations such as creating, updating and deleting the data are only allowed to the authenticated and authorized users.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "The application is part of a coursework from the book:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://books.google.com.mm/books/about/Pro_MERN_Stack.html?id=TayXDwAAQBAJ&source=kp_book_description&redir_esc=y"
+      }, "Pro MERN Stack: Full Stack Web App Development 2nd ed. by Vasan Subramanian"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "text-muted"
+      }, apiAbout)));
     }
   }], [{
     key: "fetchData",
@@ -1724,7 +1732,7 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
           color: 'orange',
           margin: '0'
         }
-      }, "You might want to dummy sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__.default, {
+      }, "You might want to sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__.default, {
         style: {
           display: open ? 'block' : 'none'
         },
