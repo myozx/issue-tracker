@@ -11,8 +11,8 @@ import {
   ButtonToolbar,
   Button,
   Alert,
+  Glyphicon,
 } from 'react-bootstrap';
-import styled from 'styled-components';
 import graphQLFetch from './graphQLFetch.js';
 import NumInput from './NumInput.jsx';
 import DateInput from './DateInput.jsx';
@@ -194,167 +194,185 @@ class IssueEdit extends React.Component {
       );
     }
 
+    const signinInfoStyle = {
+      display: user.signedIn === true ? 'none' : 'flex',
+      alignItems: 'center',
+      marginBottom: '15px',
+    };
+
     // --------- ui presentation -----------------
 
     return (
-      <StyledPanel>
-        <Panel.Heading>
-          <Panel.Title>{`Editing issue: ${id}`}</Panel.Title>
-        </Panel.Heading>
-        <Panel.Body>
-          {/* horizontal form to edit an issue */}
-          <Form horizontal onSubmit={this.handleSubmit}>
-            {/* created form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Created
-              </Col>
-              <Col sm={9}>
-                <FormControl.Static>
-                  {issue.created.toDateString()}
-                </FormControl.Static>
-              </Col>
-            </FormGroup>
-            {/* status form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Status
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass="select"
-                  name="status"
-                  value={issue.status}
-                  onChange={this.onChange}
-                >
-                  <option value="New">New</option>
-                  <option value="Assigned">Assigned</option>
-                  <option value="Fixed">Fixed</option>
-                  <option value="Closed">Closed</option>
-                </FormControl>
-              </Col>
-            </FormGroup>
-            {/* owner form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Owner
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass={TextInput}
-                  name="owner"
-                  value={issue.owner}
-                  onChange={this.onChange}
-                  key={id}
-                />
-              </Col>
-            </FormGroup>
-            {/* effort form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Effort
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass={NumInput}
-                  name="effort"
-                  value={issue.effort}
-                  onChange={this.onChange}
-                  key={id}
-                />
-              </Col>
-            </FormGroup>
-            {/* due date form field */}
-            <FormGroup validationState={invalidFields.due ? 'error' : null}>
-              <Col componentClass={ControlLabel} sm={3}>
-                Due
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass={DateInput}
-                  onValidityChange={this.onValidityChange}
-                  name="due"
-                  value={issue.due}
-                  onChange={this.onChange}
-                  key={id}
-                />
-                <FormControl.Feedback />
-              </Col>
-            </FormGroup>
-            {/* title form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Title
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass={TextInput}
-                  size={50}
-                  name="title"
-                  value={issue.title}
-                  onChange={this.onChange}
-                  key={id}
-                />
-              </Col>
-            </FormGroup>
-            {/* issue description form field */}
-            <FormGroup>
-              <Col componentClass={ControlLabel} sm={3}>
-                Description
-              </Col>
-              <Col sm={9}>
-                <FormControl
-                  componentClass={TextInput}
-                  tag="textarea"
-                  rows={4}
-                  cols={50}
-                  name="description"
-                  value={issue.description}
-                  onChange={this.onChange}
-                  key={id}
-                />
-              </Col>
-            </FormGroup>
-            {/* submit button */}
-            <FormGroup>
-              <Col smOffset={3} sm={6}>
-                <ButtonToolbar>
-                  <Button
-                    disabled={!user.signedIn}
-                    bsStyle="primary"
-                    type="submit"
-                  >
-                    Submit
-                  </Button>
-                  <LinkContainer to="/issues">
-                    <Button bsStyle="link">Back</Button>
-                  </LinkContainer>
-                </ButtonToolbar>
-              </Col>
-            </FormGroup>
-            {/* form inputs validation message */}
-            <FormGroup>
-              <Col smOffset={3} sm={9}>
-                {validationMessage}
-              </Col>
-            </FormGroup>
-          </Form>
-        </Panel.Body>
-        {/* prev and next page */}
-        <Panel.Footer>
-          <Link to={`/edit/${id - 1}`}>Prev</Link>
-          {' | '}
-          <Link to={`/edit/${id + 1}`}>Next</Link>
-        </Panel.Footer>
-      </StyledPanel>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4 col-md-offset-8">
+            <div style={signinInfoStyle}>
+              <Glyphicon
+                style={{ color: 'orange', margin: '0 5px' }}
+                glyph="info-sign"
+              />
+              <p style={{ color: 'orange', margin: '0' }}>
+                You might want to sign in to edit and add issues.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <Panel>
+            <Panel.Heading>
+              <Panel.Title>{`Editing issue: ${id}`}</Panel.Title>
+            </Panel.Heading>
+            <Panel.Body>
+              {/* horizontal form to edit an issue */}
+              <Form horizontal onSubmit={this.handleSubmit}>
+                {/* created form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Created
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl.Static>
+                      {issue.created.toDateString()}
+                    </FormControl.Static>
+                  </Col>
+                </FormGroup>
+                {/* status form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Status
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass="select"
+                      name="status"
+                      value={issue.status}
+                      onChange={this.onChange}
+                    >
+                      <option value="New">New</option>
+                      <option value="Assigned">Assigned</option>
+                      <option value="Fixed">Fixed</option>
+                      <option value="Closed">Closed</option>
+                    </FormControl>
+                  </Col>
+                </FormGroup>
+                {/* owner form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Owner
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass={TextInput}
+                      name="owner"
+                      value={issue.owner}
+                      onChange={this.onChange}
+                      key={id}
+                    />
+                  </Col>
+                </FormGroup>
+                {/* effort form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Effort
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass={NumInput}
+                      name="effort"
+                      value={issue.effort}
+                      onChange={this.onChange}
+                      key={id}
+                    />
+                  </Col>
+                </FormGroup>
+                {/* due date form field */}
+                <FormGroup validationState={invalidFields.due ? 'error' : null}>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Due
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass={DateInput}
+                      onValidityChange={this.onValidityChange}
+                      name="due"
+                      value={issue.due}
+                      onChange={this.onChange}
+                      key={id}
+                    />
+                    <FormControl.Feedback />
+                  </Col>
+                </FormGroup>
+                {/* title form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Title
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass={TextInput}
+                      size={50}
+                      name="title"
+                      value={issue.title}
+                      onChange={this.onChange}
+                      key={id}
+                    />
+                  </Col>
+                </FormGroup>
+                {/* issue description form field */}
+                <FormGroup>
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Description
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl
+                      componentClass={TextInput}
+                      tag="textarea"
+                      rows={4}
+                      cols={50}
+                      name="description"
+                      value={issue.description}
+                      onChange={this.onChange}
+                      key={id}
+                    />
+                  </Col>
+                </FormGroup>
+                {/* submit button */}
+                <FormGroup>
+                  <Col smOffset={3} sm={6}>
+                    <ButtonToolbar>
+                      <Button
+                        disabled={!user.signedIn}
+                        bsStyle="primary"
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
+                      <LinkContainer to="/issues">
+                        <Button bsStyle="link">Back</Button>
+                      </LinkContainer>
+                    </ButtonToolbar>
+                  </Col>
+                </FormGroup>
+                {/* form inputs validation message */}
+                <FormGroup>
+                  <Col smOffset={3} sm={9}>
+                    {validationMessage}
+                  </Col>
+                </FormGroup>
+              </Form>
+            </Panel.Body>
+            {/* prev and next page */}
+            <Panel.Footer>
+              <Link to={`/edit/${id - 1}`}>Prev</Link>
+              {' | '}
+              <Link to={`/edit/${id + 1}`}>Next</Link>
+            </Panel.Footer>
+          </Panel>
+        </div>
+      </div>
     );
   }
 }
-
-const StyledPanel = styled(Panel)`
-  max-width: 980px;
-  margin: 0 auto;
-`;
 
 IssueEdit.contextType = UserContext;
 const IssueEditWithToast = withToast(IssueEdit);

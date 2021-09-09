@@ -40,13 +40,14 @@ export default class About extends React.Component {
           <h3>Issue Tracker Application</h3>
           <hr />
           <p className="text-muted">
-            An issue-tracking app which assists the team members
-            to stay organized in a project with the issues or tasks
+            An issue-tracking app which assists team members of a project
+            to stay organized with the issues or tasks
             towards the completion
-            of it. Each member or the project leader could perform
+            of them. Each member or the project leader could perform
             CRUD operations on the list of issues during the
-            development process. Although the list of issues can be read by
-            anyone, the remaining operations such as creating, updating and
+            development process. Although reading operation on the list
+            of issues can be read is not restricted,
+            the remaining operations such as creating, updating and
             deleting the data are only allowed to the authenticated
             and authorized users.
             <br />

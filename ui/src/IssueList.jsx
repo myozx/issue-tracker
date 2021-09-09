@@ -14,6 +14,7 @@ import IssueDetail from './IssueDetail.jsx';
 import graphQLFetch from './graphQLFetch.js';
 import store from './store.js';
 import withToast from './withToast.jsx';
+import UserContext from './UserContext.js';
 
 // number of pagination links in each section
 const SECTION_SIZE = 5;
@@ -322,6 +323,7 @@ class IssueList extends React.Component {
 
   render() {
     const { issues, open } = this.state;
+    const user = this.context;
     if (issues == null) return null;
 
     // -------- pagination logics and creating pagination links ----------
@@ -354,15 +356,21 @@ class IssueList extends React.Component {
       ));
     }
 
+    const infoStyle = {
+      display: user.signedIn === true ? 'none' : 'flex',
+      alignItems: 'center',
+      marginBottom: '15px',
+    };
+
     return (
       <React.Fragment>
-        {/* Filter panel */}
-        <ContentWrap>
+        {/* ----- Filter panel ----------- */}
+        <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button onClick={this.togglePanel}>
               Filter Issues
             </Button>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={infoStyle}>
               <Glyphicon
                 style={{ color: 'orange', margin: '0 5px' }}
                 glyph="info-sign"
@@ -396,7 +404,7 @@ class IssueList extends React.Component {
           <IssueDetail issue={selectedIssue} />
           {/* pagination links */}
           <PaginationWrap>
-            <Pagination className="paginationam">
+            <Pagination>
               <PageLink params={params} page={prevSection}>
                 <Pagination.Item>{'<'}</Pagination.Item>
               </PageLink>
@@ -406,17 +414,11 @@ class IssueList extends React.Component {
               </PageLink>
             </Pagination>
           </PaginationWrap>
-        </ContentWrap>
+        </div>
       </React.Fragment>
     );
   }
 }
-
-const ContentWrap = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  }
-`;
 
 const PaginationWrap = styled.div`
   display: flex; 
@@ -429,6 +431,7 @@ const PaginationWrap = styled.div`
   }
 `;
 
+IssueList.contextType = UserContext;
 const IssueListWithToast = withToast(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
 

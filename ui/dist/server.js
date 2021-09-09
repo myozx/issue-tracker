@@ -186,7 +186,7 @@ class About extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
       className: "col-md-8 col-md-offset-2"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Issue Tracker Application"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
       className: "text-muted"
-    }, "An issue-tracking app which assists the team members to stay organized in a project with the issues or tasks towards the completion of it. Each member or the project leader could perform CRUD operations on the list of issues during the development process. Although the list of issues can be read by anyone, the remaining operations such as creating, updating and deleting the data are only allowed to the authenticated and authorized users.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "The application is part of a coursework from the book:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    }, "An issue-tracking app which assists team members of a project to stay organized with the issues or tasks towards the completion of them. Each member or the project leader could perform CRUD operations on the list of issues during the development process. Although reading operation on the list of issues can be read is not restricted, the remaining operations such as creating, updating and deleting the data are only allowed to the authenticated and authorized users.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "The application is part of a coursework from the book:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
       href: "https://books.google.com.mm/books/about/Pro_MERN_Stack.html?id=TayXDwAAQBAJ&source=kp_book_description&redir_esc=y"
     }, "Pro MERN Stack: Full Stack Web App Development 2nd ed. by Vasan Subramanian"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
       className: "text-muted"
@@ -518,16 +518,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _NumInput_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NumInput.jsx */ "./src/NumInput.jsx");
-/* harmony import */ var _DateInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DateInput.jsx */ "./src/DateInput.jsx");
-/* harmony import */ var _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TextInput.jsx */ "./src/TextInput.jsx");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
-/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
-
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _NumInput_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NumInput.jsx */ "./src/NumInput.jsx");
+/* harmony import */ var _DateInput_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DateInput.jsx */ "./src/DateInput.jsx");
+/* harmony import */ var _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TextInput.jsx */ "./src/TextInput.jsx");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
+/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
 
 
 
@@ -559,7 +556,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         id
       }
     } = match;
-    const result = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, {
+    const result = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, {
       id: Number(id)
     }, showError);
     return result;
@@ -567,8 +564,8 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
   constructor(props) {
     super(props);
-    const issue = _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData.issue : null;
-    delete _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData;
+    const issue = _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData.issue : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData;
     this.state = {
       issue,
       // <Object>
@@ -675,7 +672,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       showError,
       showSuccess
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, {
       id,
       changes
     }, showError);
@@ -754,10 +751,36 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         bsStyle: "danger",
         onDismiss: this.dismissValidation
       }, "Please correct invalid fields before submitting");
-    } // --------- ui presentation -----------------
+    }
 
+    const signinInfoStyle = {
+      display: user.signedIn === true ? 'none' : 'flex',
+      alignItems: 'center',
+      marginBottom: '15px'
+    }; // --------- ui presentation -----------------
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledPanel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, null, `Editing issue: ${id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Form, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "row"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "col-md-4 col-md-offset-8"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      style: signinInfoStyle
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Glyphicon, {
+      style: {
+        color: 'orange',
+        margin: '0 5px'
+      },
+      glyph: "info-sign"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      style: {
+        color: 'orange',
+        margin: '0'
+      }
+    }, "You might want to sign in to edit and add issues.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "row"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, null, `Editing issue: ${id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Form, {
       horizontal: true,
       onSubmit: this.handleSubmit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
@@ -789,7 +812,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
       name: "owner",
       value: issue.owner,
       onChange: this.onChange,
@@ -800,7 +823,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Effort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _NumInput_jsx__WEBPACK_IMPORTED_MODULE_6__.default,
+      componentClass: _NumInput_jsx__WEBPACK_IMPORTED_MODULE_5__.default,
       name: "effort",
       value: issue.effort,
       onChange: this.onChange,
@@ -813,7 +836,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Due"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _DateInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
+      componentClass: _DateInput_jsx__WEBPACK_IMPORTED_MODULE_6__.default,
       onValidityChange: this.onValidityChange,
       name: "due",
       value: issue.due,
@@ -825,7 +848,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
       size: 50,
       name: "title",
       value: issue.title,
@@ -837,7 +860,7 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Col, {
       sm: 9
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
-      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_8__.default,
+      componentClass: _TextInput_jsx__WEBPACK_IMPORTED_MODULE_7__.default,
       tag: "textarea",
       rows: 4,
       cols: 50,
@@ -863,17 +886,13 @@ class IssueEdit extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       to: `/edit/${id - 1}`
     }, "Prev"), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: `/edit/${id + 1}`
-    }, "Next")));
+    }, "Next")))));
   }
 
 }
 
-const StyledPanel = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel)`
-  max-width: 980px;
-  margin: 0 auto;
-`;
-IssueEdit.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_11__.default;
-const IssueEditWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueEdit);
+IssueEdit.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_10__.default;
+const IssueEditWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_9__.default)(IssueEdit);
 IssueEditWithToast.fetchData = IssueEdit.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueEditWithToast);
 
@@ -1084,6 +1103,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
 /* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
+/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
+
 
 
 
@@ -1436,6 +1457,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       issues,
       open
     } = this.state;
+    const user = this.context;
     if (issues == null) return null; // -------- pagination logics and creating pagination links ----------
 
     const {
@@ -1470,7 +1492,14 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, i)));
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    const infoStyle = {
+      display: user.signedIn === true ? 'none' : 'flex',
+      alignItems: 'center',
+      marginBottom: '15px'
+    };
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       style: {
         display: 'flex',
         justifyContent: 'space-between'
@@ -1478,10 +1507,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
       onClick: this.togglePanel
     }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      style: {
-        display: 'flex',
-        alignItems: 'center'
-      }
+      style: infoStyle
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Glyphicon, {
       style: {
         color: 'orange',
@@ -1508,9 +1534,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       deleteIssue: this.deleteIssue
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_7__.default, {
       issue: selectedIssue
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PaginationWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination, {
-      className: "paginationam"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PaginationWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
       params: params,
       page: prevSection
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '<')), items, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
@@ -1521,11 +1545,6 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
 
 }
 
-const ContentWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default().div)`
-  max-width: 1280px;
-  margin: 0 auto;
-  }
-`;
 const PaginationWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default().div)`
   display: flex; 
   justify-content: center;
@@ -1536,6 +1555,7 @@ const PaginationWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default()
     border-color: #a5d5ff;
   }
 `;
+IssueList.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_11__.default;
 const IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueListWithToast);
