@@ -39,7 +39,7 @@ function PageLink({
   return (
     <LinkContainer
       isActive={() => page === activePage}
-      to={{ search: `?${params.toString()}` }}
+      to={{ pathname: '/issues', search: `?${params.toString()}` }}
     >
       {children}
     </LinkContainer>

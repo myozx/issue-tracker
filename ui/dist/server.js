@@ -402,7 +402,8 @@ class IssueAddNavItem extends (react__WEBPACK_IMPORTED_MODULE_0___default().Comp
     const issue = {
       owner: form.owner.value,
       title: form.title.value,
-      due: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 10)
+      due: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 10),
+      description: '// no description yet'
     };
     const query = `mutation issueAdd($issue: IssueInputs!){
        issueAdd(issue: $issue){
@@ -1140,6 +1141,7 @@ function PageLink({
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_4__.LinkContainer, {
     isActive: () => page === activePage,
     to: {
+      pathname: '/issues',
       search: `?${params.toString()}`
     }
   }, children);

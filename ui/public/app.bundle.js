@@ -486,7 +486,8 @@ var IssueAddNavItem = /*#__PURE__*/function (_React$Component) {
                 issue = {
                   owner: form.owner.value,
                   title: form.title.value,
-                  due: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 10)
+                  due: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 10),
+                  description: '// no description yet'
                 };
                 query = "mutation issueAdd($issue: IssueInputs!){\n       issueAdd(issue: $issue){\n        id\n       }\n    }";
                 showError = this.props.showError;
@@ -1386,6 +1387,7 @@ function PageLink(_ref) {
       return page === activePage;
     },
     to: {
+      pathname: '/issues',
       search: "?".concat(params.toString())
     }
   }, children);

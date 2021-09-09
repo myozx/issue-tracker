@@ -50,6 +50,7 @@ class IssueAddNavItem extends React.Component {
       owner: form.owner.value,
       title: form.title.value,
       due: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 10),
+      description: '// no description yet',
     };
 
     const query = `mutation issueAdd($issue: IssueInputs!){
