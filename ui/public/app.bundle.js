@@ -1263,12 +1263,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! url-search-params-polyfill */ "./node_modules/url-search-params-polyfill/index.js");
 /* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Button.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Pagination.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Panel.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Glyphicon.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Panel.js");
 /* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-bootstrap */ "./node_modules/react-router-bootstrap/lib/index.js");
 /* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
 /* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/IssueTable.jsx");
@@ -1700,16 +1701,37 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_10__.default.Item, null, i)));
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: {
+          display: 'flex',
+          justifyContent: 'space-between'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__.default, {
         onClick: this.togglePanel
-      }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default, {
+      }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: {
+          display: 'flex',
+          alignItems: 'center'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default, {
+        style: {
+          color: 'orange',
+          margin: '0 5px'
+        },
+        glyph: "info-sign"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        style: {
+          color: 'orange',
+          margin: '0'
+        }
+      }, "You might want to dummy sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__.default, {
         style: {
           display: open ? 'block' : 'none'
         },
         expanded: open,
         onToggle: this.togglePanel,
         defaultExpanded: true
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__.default.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__.default.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
         urlBase: "/issues"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {
         issues: issues,
@@ -1795,8 +1817,8 @@ var IssueList = /*#__PURE__*/function (_React$Component) {
   return IssueList;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-var ContentWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  max-width: 1280px;\n  margin: 0 auto;\n  }\n"])));
-var PaginationWrap = styled_components__WEBPACK_IMPORTED_MODULE_12__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex; \n  justify-content: center;\n  width: 100%;\n\n  .pagination>.active>a {\n    background-color: #636c99;\n    border-color: #a5d5ff;\n  }\n"])));
+var ContentWrap = styled_components__WEBPACK_IMPORTED_MODULE_13__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  max-width: 1280px;\n  margin: 0 auto;\n  }\n"])));
+var PaginationWrap = styled_components__WEBPACK_IMPORTED_MODULE_13__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex; \n  justify-content: center;\n  width: 100%;\n\n  .pagination>.active>a {\n    background-color: #636c99;\n    border-color: #a5d5ff;\n  }\n"])));
 var IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_8__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueListWithToast);
@@ -2335,7 +2357,7 @@ function NavBar(_ref) {
     href: "/about"
   }, "About"))));
 }
-var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  margin-bottom: 30px;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #383b4a;\n    text-decoration: underline;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n  }\n"])));
+var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  margin-bottom: 30px;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n    margin: 0 5px;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n"])));
 
 /***/ }),
 

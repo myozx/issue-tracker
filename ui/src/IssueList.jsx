@@ -5,6 +5,7 @@ import {
   Panel,
   Pagination,
   Button,
+  Glyphicon,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import IssueFilter from './IssueFilter.jsx';
@@ -357,9 +358,20 @@ class IssueList extends React.Component {
       <React.Fragment>
         {/* Filter panel */}
         <ContentWrap>
-          <Button onClick={this.togglePanel}>
-            Filter Issues
-          </Button>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button onClick={this.togglePanel}>
+              Filter Issues
+            </Button>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Glyphicon
+                style={{ color: 'orange', margin: '0 5px' }}
+                glyph="info-sign"
+              />
+              <p style={{ color: 'orange', margin: '0' }}>
+                You might want to dummy sign in to edit and add issues.
+              </p>
+            </div>
+          </div>
           {/* <br /> */}
           <Panel
             style={{ display: open ? 'block' : 'none' }}

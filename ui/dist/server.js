@@ -1462,9 +1462,30 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, i)));
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'space-between'
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
       onClick: this.togglePanel
-    }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, {
+    }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center'
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Glyphicon, {
+      style: {
+        color: 'orange',
+        margin: '0 5px'
+      },
+      glyph: "info-sign"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      style: {
+        color: 'orange',
+        margin: '0'
+      }
+    }, "You might want to dummy sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, {
       style: {
         display: open ? 'block' : 'none'
       },
@@ -2009,6 +2030,7 @@ const StyledNavbar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(re
   /* for home button */
   .navbar-nav>li>a, .navbar-nav>li>a:focus {
     color: white;
+    margin: 0 5px;
   }
   
   /* for sign in button */
@@ -2016,6 +2038,7 @@ const StyledNavbar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(re
     color: white;
     background-color: #474b5b;
     border-radius: 7px;
+    margin: 0 5px;
   }
 
   /* ----- for about link ------ */
@@ -2030,14 +2053,16 @@ const StyledNavbar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(re
   .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
     color: white;
     font-weight: bold;
-    background-color: #383b4a;
-    text-decoration: underline;
+    background-color: #5b5e6f75;
+    border-radius: 7px;
+    margin: 0 5px;
   }
 
   .navbar-nav>.active>a:hover {
     color: white;
     background-color: #5b5e6f75;
     border-radius: 7px;
+    margin: 0 5px;
   }
 `;
 

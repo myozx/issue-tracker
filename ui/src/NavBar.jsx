@@ -76,6 +76,7 @@ const StyledNavbar = styled(Navbar)`
   /* for home button */
   .navbar-nav>li>a, .navbar-nav>li>a:focus {
     color: white;
+    margin: 0 5px;
   }
   
   /* for sign in button */
@@ -83,6 +84,7 @@ const StyledNavbar = styled(Navbar)`
     color: white;
     background-color: #474b5b;
     border-radius: 7px;
+    margin: 0 5px;
   }
 
   /* ----- for about link ------ */
@@ -97,13 +99,15 @@ const StyledNavbar = styled(Navbar)`
   .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
     color: white;
     font-weight: bold;
-    background-color: #383b4a;
-    text-decoration: underline;
+    background-color: #5b5e6f75;
+    border-radius: 7px;
+    margin: 0 5px;
   }
 
   .navbar-nav>.active>a:hover {
     color: white;
     background-color: #5b5e6f75;
     border-radius: 7px;
+    margin: 0 5px;
   }
 `;
