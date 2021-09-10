@@ -1091,22 +1091,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! url-search-params-polyfill */ "url-search-params-polyfill");
-/* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-bootstrap */ "react-router-bootstrap");
-/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
-/* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/IssueTable.jsx");
-/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/IssueDetail.jsx");
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
-/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
-
+/* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! url-search-params-polyfill */ "url-search-params-polyfill");
+/* harmony import */ var url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(url_search_params_polyfill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-bootstrap */ "react-router-bootstrap");
+/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
+/* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/IssueTable.jsx");
+/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/IssueDetail.jsx");
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
+/* harmony import */ var _UserContext_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./UserContext.js */ "./src/UserContext.js");
 
 
 
@@ -1139,7 +1136,7 @@ function PageLink({
   if (page === 0) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(children, {
     disabled: true
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_4__.LinkContainer, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
     isActive: () => page === activePage,
     to: {
       pathname: '/issues',
@@ -1212,13 +1209,13 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
                         id description
                       }
                     }`;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__.default)(query, vars, showError);
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_7__.default)(query, vars, showError);
     return data;
   }
 
   constructor(props) {
     super(props);
-    const initialData = _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData || {
+    const initialData = _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData || {
       issueList: {}
     };
     const {
@@ -1229,7 +1226,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       issue: selectedIssue
     } = initialData; // once  the property is destructed, it can be deleted in the global store
 
-    delete _store_js__WEBPACK_IMPORTED_MODULE_9__.default.initialData;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_8__.default.initialData;
     this.state = {
       issues,
       // Array<Object>
@@ -1318,7 +1315,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     const {
       showError
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_7__.default)(query, {
       id: issues[index].id
     }, showError);
 
@@ -1352,7 +1349,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       showError,
       showSuccess
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_7__.default)(query, {
       id
     }, showError);
 
@@ -1391,7 +1388,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
     const {
       showError
     } = this.props;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_8__.default)(query, {
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_7__.default)(query, {
       id: Number(id)
     }, showError); // if the issue is successfully deleted in the database
 
@@ -1418,7 +1415,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
       } = this.props; // create a success toast with UNDO button to restore
       // the deleted issue.
 
-      const undoMessage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, `Deleted issue ${id} successfully.`, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      const undoMessage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, `Deleted issue ${id} successfully.`, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Button, {
         bsStyle: "link",
         onClick: () => this.restoreIssue(id)
       }, "UNDO"));
@@ -1492,7 +1489,7 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         params: params,
         activePage: page,
         page: i
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, i)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Pagination.Item, null, i)));
     }
 
     const infoStyle = {
@@ -1507,11 +1504,11 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         display: 'flex',
         justifyContent: 'space-between'
       }
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Button, {
       onClick: this.togglePanel
     }, "Filter Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       style: infoStyle
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Glyphicon, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Glyphicon, {
       style: {
         color: 'orange',
         margin: '0 5px'
@@ -1522,44 +1519,34 @@ class IssueList extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component)
         color: 'orange',
         margin: '0'
       }
-    }, "You might want to sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, {
+    }, "You might want to sign in to edit and add issues."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Panel, {
       style: {
         display: open ? 'block' : 'none'
       },
       expanded: open,
       onToggle: this.togglePanel,
       defaultExpanded: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Panel.Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Panel.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {
       urlBase: "/issues"
-    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
+    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
       issues: issues,
       closeIssue: this.closeIssue,
       deleteIssue: this.deleteIssue
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_7__.default, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
       issue: selectedIssue
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PaginationWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Pagination, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
       params: params,
       page: prevSection
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '<')), items, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Pagination.Item, null, '<')), items, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageLink, {
       params: params,
       page: nextSection
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Pagination.Item, null, '>'))))));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Pagination.Item, null, '>')))));
   }
 
 }
 
-const PaginationWrap = (styled_components__WEBPACK_IMPORTED_MODULE_1___default().div)`
-  display: flex; 
-  justify-content: center;
-  width: 100%;
-
-  .pagination>.active>a {
-    background-color: #636c99;
-    border-color: #a5d5ff;
-  }
-`;
-IssueList.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_11__.default;
-const IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_10__.default)(IssueList);
+IssueList.contextType = _UserContext_js__WEBPACK_IMPORTED_MODULE_10__.default;
+const IssueListWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_9__.default)(IssueList);
 IssueListWithToast.fetchData = IssueList.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueListWithToast);
 
@@ -1582,15 +1569,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
-/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
-/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
-
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./graphQLFetch.js */ "./src/graphQLFetch.js");
+/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/IssueFilter.jsx");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store.js */ "./src/store.js");
+/* harmony import */ var _withToast_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./withToast.jsx */ "./src/withToast.jsx");
 
 
 
@@ -1622,14 +1606,14 @@ class IssueReport extends (react__WEBPACK_IMPORTED_MODULE_2___default().Componen
                         owner New Assigned Fixed Closed
                       }
                     }`;
-    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_5__.default)(query, vars, showError);
+    const data = await (0,_graphQLFetch_js__WEBPACK_IMPORTED_MODULE_4__.default)(query, vars, showError);
     return data;
   }
 
   constructor(props) {
     super(props);
-    const stats = _store_js__WEBPACK_IMPORTED_MODULE_7__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_7__.default.initialData.issueCounts : null;
-    delete _store_js__WEBPACK_IMPORTED_MODULE_7__.default.initialData;
+    const stats = _store_js__WEBPACK_IMPORTED_MODULE_6__.default.initialData ? _store_js__WEBPACK_IMPORTED_MODULE_6__.default.initialData.issueCounts : null;
+    delete _store_js__WEBPACK_IMPORTED_MODULE_6__.default.initialData;
     this.state = {
       stats
     };
@@ -1692,57 +1676,27 @@ class IssueReport extends (react__WEBPACK_IMPORTED_MODULE_2___default().Componen
       className: "rcell",
       key: (0,uuid__WEBPACK_IMPORTED_MODULE_1__.v4)()
     }, counts[status] ? counts[status] : 0))));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(ContentWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.Panel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.Panel.Title, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Heading, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Title, {
       toggle: true
-    }, "Filter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.Panel.Body, {
+    }, "Filter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Panel.Body, {
       collapsible: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_6__.default, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_5__.default, {
       urlBase: "/report"
-    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(TableWrap, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(StyledTable, {
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__.Table, {
       condensed: true,
       responsive: true
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("tr", {
       className: "axHeadRow"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("th", {
       className: "axHead"
-    }, "User \\ Status"), headerColumns)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("tbody", null, statRows)))));
+    }, "User \\ Status"), headerColumns)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("tbody", null, statRows))));
   }
 
 }
 
-const ContentWrap = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().div)`
-  max-width: 960px;
-  margin: 0 auto;
-  }
-`;
-const TableWrap = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().div)`
-  border: 0.5px solid #d6d6d6;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin: 0 auto;
-`;
-const StyledTable = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__.Table)`
-  margin-bottom: 0px;
-
-  .axHeadRow {
-    cursor: initial;
-  }
-
-  .axHead {
-    text-align: center;
-    font-size: 1.4rem;
-    border-bottom: transparent;
-  }
-
-  .rcell {
-    text-align: center;
-    border-top: 0.5px solid #e3e3e3;
-    color: #383b4a;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-`;
-const IssueReportWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_8__.default)(IssueReport);
+const IssueReportWithToast = (0,_withToast_jsx__WEBPACK_IMPORTED_MODULE_7__.default)(IssueReport);
 IssueReportWithToast.fetchData = IssueReport.fetchData;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IssueReportWithToast);
 
@@ -3094,17 +3048,6 @@ module.exports = require("react-select/async");
 
 "use strict";
 module.exports = require("serialize-javascript");
-
-/***/ }),
-
-/***/ "styled-components":
-/*!************************************!*\
-  !*** external "styled-components" ***!
-  \************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("styled-components");
 
 /***/ }),
 

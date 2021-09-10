@@ -53,6 +53,7 @@
 }
 
 /* ------ Table Styles --------------- */
+
 .table {
   margin-bottom: 0px;
 }
@@ -85,4 +86,19 @@ table.table-hover thead>tr {
 .table>tbody>tr>td .actionBtn {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* ----- Pagination ----------- */
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+.pagination>.active>a {
+  background-color: #636c99;
+  border-color: #c8e5ff;
 }

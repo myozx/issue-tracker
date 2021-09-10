@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import 'url-search-params-polyfill';
 import {
   Panel,
@@ -403,33 +402,20 @@ class IssueList extends React.Component {
           {/* issue detail */}
           <IssueDetail issue={selectedIssue} />
           {/* pagination links */}
-          <PaginationWrap>
-            <Pagination>
-              <PageLink params={params} page={prevSection}>
-                <Pagination.Item>{'<'}</Pagination.Item>
-              </PageLink>
-              {items}
-              <PageLink params={params} page={nextSection}>
-                <Pagination.Item>{'>'}</Pagination.Item>
-              </PageLink>
-            </Pagination>
-          </PaginationWrap>
+          <Pagination>
+            <PageLink params={params} page={prevSection}>
+              <Pagination.Item>{'<'}</Pagination.Item>
+            </PageLink>
+            {items}
+            <PageLink params={params} page={nextSection}>
+              <Pagination.Item>{'>'}</Pagination.Item>
+            </PageLink>
+          </Pagination>
         </div>
       </React.Fragment>
     );
   }
 }
-
-const PaginationWrap = styled.div`
-  display: flex; 
-  justify-content: center;
-  width: 100%;
-
-  .pagination>.active>a {
-    background-color: #636c99;
-    border-color: #a5d5ff;
-  }
-`;
 
 IssueList.contextType = UserContext;
 const IssueListWithToast = withToast(IssueList);

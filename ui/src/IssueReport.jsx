@@ -1,7 +1,6 @@
 import 'url-search-params-polyfill';
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
-import styled from 'styled-components';
 import { Panel, Table } from 'react-bootstrap';
 import graphQLFetch from './graphQLFetch.js';
 import IssueFilter from './IssueFilter.jsx';
@@ -91,7 +90,7 @@ class IssueReport extends React.Component {
 
     return (
       <>
-        <ContentWrap>
+        <div className="container">
           <Panel>
             <Panel.Heading>
               <Panel.Title toggle>Filter</Panel.Title>
@@ -100,59 +99,22 @@ class IssueReport extends React.Component {
               <IssueFilter urlBase="/report" />
             </Panel.Body>
           </Panel>
-          <TableWrap>
-            <StyledTable condensed responsive>
-              <thead>
-                <tr className="axHeadRow">
-                  <th className="axHead">User \ Status</th>
-                  {headerColumns}
-                </tr>
-              </thead>
-              <tbody>
-                {statRows}
-              </tbody>
-            </StyledTable>
-          </TableWrap>
-        </ContentWrap>
+          <Table condensed responsive>
+            <thead>
+              <tr className="axHeadRow">
+                <th className="axHead">User \ Status</th>
+                {headerColumns}
+              </tr>
+            </thead>
+            <tbody>
+              {statRows}
+            </tbody>
+          </Table>
+        </div>
       </>
     );
   }
 }
-
-const ContentWrap = styled.div`
-  max-width: 960px;
-  margin: 0 auto;
-  }
-`;
-
-const TableWrap = styled.div`
-  border: 0.5px solid #d6d6d6;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin: 0 auto;
-`;
-
-const StyledTable = styled(Table)`
-  margin-bottom: 0px;
-
-  .axHeadRow {
-    cursor: initial;
-  }
-
-  .axHead {
-    text-align: center;
-    font-size: 1.4rem;
-    border-bottom: transparent;
-  }
-
-  .rcell {
-    text-align: center;
-    border-top: 0.5px solid #e3e3e3;
-    color: #383b4a;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-`;
 
 const IssueReportWithToast = withToast(IssueReport);
 IssueReportWithToast.fetchData = IssueReport.fetchData;
