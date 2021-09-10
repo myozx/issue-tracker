@@ -6,7 +6,6 @@ import {
   OverlayTrigger,
   Table,
 } from 'react-bootstrap';
-import styled from 'styled-components';
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router-dom';
 import UserContext from './UserContext.js';
@@ -56,23 +55,29 @@ class IssueRowPlain extends React.Component {
     const deleteTooltip = <Tooltip id="delete-tooltip">Delete Issue</Tooltip>;
     const editTooltip = <Tooltip id="edit-tooltip">Edit Issue</Tooltip>;
 
+    const statusStyle = {
+      backgroundColor: `${colors.status[issue.status]}`,
+      paddingTop: '0.5px',
+      paddingBottom: '0.5px',
+      borderRadius: '0.5rem',
+      margin: '0 auto',
+    };
+
     const tableRow = (
       <tr>
-        <td className="cell">{issue.id}</td>
-        <td className="cell">
-          <StatusWrapper
-            color={colors.status[issue.status]}
-          >
+        <td>{issue.id}</td>
+        <td>
+          <div style={statusStyle}>
             {issue.status}
-          </StatusWrapper>
+          </div>
         </td>
-        <td className="cell">{issue.owner}</td>
-        <td className="cell">{issue.created.toDateString()}</td>
-        <td className="cell">{issue.effort}</td>
-        <td className="cell">{issue.due ? issue.due.toDateString() : ' '}</td>
-        <td className="cell">{issue.title}</td>
-        <td className="cell">
-          <ActionFlex>
+        <td>{issue.owner}</td>
+        <td>{issue.created.toDateString()}</td>
+        <td>{issue.effort}</td>
+        <td>{issue.due ? issue.due.toDateString() : ' '}</td>
+        <td>{issue.title}</td>
+        <td>
+          <div className="actionBtn">
             <LinkContainer to={`/edit/${issue.id}`}>
               <OverlayTrigger delayShow={1000} overlay={editTooltip}>
                 <Button bsSize="xsmall">
@@ -108,7 +113,7 @@ class IssueRowPlain extends React.Component {
                 <Glyphicon glyph="trash" />
               </Button>
             </OverlayTrigger>
-          </ActionFlex>
+          </div>
         </td>
       </tr>
     );
@@ -149,69 +154,20 @@ export default function IssueTable({ issues, closeIssue, deleteIssue }) {
   ));
 
   return (
-    <TableWrap>
-      <StyledTable
-        hover
-        responsive
-      >
-        <thead>
-          <tr className="amHeadRow">
-            <th className="amHead">ID</th>
-            <th className="amHead">Status</th>
-            <th className="amHead">Owner</th>
-            <th className="amHead">Created</th>
-            <th className="amHead">Effort</th>
-            <th className="amHead">Due Date</th>
-            <th className="amHead">Title</th>
-            <th className="amHead">Action</th>
-          </tr>
-        </thead>
-        <tbody>{issueRows}</tbody>
-      </StyledTable>
-    </TableWrap>
+    <Table hover responsive>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Created</th>
+          <th>Effort</th>
+          <th>Due Date</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>{issueRows}</tbody>
+    </Table>
   );
 }
-
-// ---------------- styles --------------------
-
-const TableWrap = styled.div`
-  border: 0.5px solid #d6d6d6;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin: 0 auto;
-`;
-
-const StyledTable = styled(Table)`
-  margin-bottom: 0px;
-
-  .amHeadRow {
-    cursor: initial;
-  }
-
-  .amHead {
-    text-align: center;
-    font-size: 1.4rem;
-    border-bottom: transparent;
-  }
-
-  .cell {
-    text-align: center;
-    border-top: 0.5px solid #e3e3e3;
-    color: #383b4a;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-`;
-
-const StatusWrapper = styled.div`
-  background-color: ${props => props.color};
-  padding-top: 0.5px;
-  padding-bottom: 0.5px;
-  border-radius: 0.5rem;
-  margin: 0 auto;
-`;
-
-const ActionFlex = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-`;
