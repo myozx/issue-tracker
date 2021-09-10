@@ -5,7 +5,6 @@ import {
   NavItem,
   NavDropdown,
   MenuItem,
-  Col,
   Glyphicon,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -44,11 +43,6 @@ export default function NavBar({ user, onUserChange }) {
           </NavItem>
         </LinkContainer>
       </Nav>
-      <Col sm={4} md={5}>
-        <Navbar.Form>
-          <Search />
-        </Navbar.Form>
-      </Col>
       <Nav pullRight>
         <IssueAddNavItem user={user} />
         <SignInNavItem user={user} onUserChange={onUserChange} />
@@ -60,6 +54,11 @@ export default function NavBar({ user, onUserChange }) {
           <MenuItem href="/about">About</MenuItem>
         </NavDropdown>
       </Nav>
+      <div className="searchBarx container-fluid">
+        <Navbar.Form>
+          <Search />
+        </Navbar.Form>
+      </div>
     </Navbar>
   );
 }

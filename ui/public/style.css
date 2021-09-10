@@ -52,6 +52,10 @@
   margin: 0 5px;
 }
 
+.navbar-default .navbar-form {
+  border-color: #474b5b;
+}
+
 /* ------ Table Styles --------------- */
 
 .table {
@@ -98,7 +102,24 @@ table.table-hover thead>tr {
   justify-content: center;
 }
 
-.pagination>.active>a {
+.pagination>li>a {
+  color: #636c99;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus,
+.pagination>.active>a:hover {
   background-color: #636c99;
   border-color: #c8e5ff;
+}
+
+/* ---- Search Bar ---------- */
+
+.searchBarx {
+  max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .searchBarx {
+    margin-right: 20%;
+  } 
 }
