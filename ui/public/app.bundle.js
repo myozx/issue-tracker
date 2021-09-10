@@ -2342,15 +2342,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/Glyphicon.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/MenuItem.js");
 /* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-bootstrap */ "./node_modules/react-router-bootstrap/lib/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _IssueAddNavItem_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IssueAddNavItem.jsx */ "./src/IssueAddNavItem.jsx");
 /* harmony import */ var _Search_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Search.jsx */ "./src/Search.jsx");
 /* harmony import */ var _SignInNavItem_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SignInNavItem.jsx */ "./src/SignInNavItem.jsx");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
 
 
 
@@ -2360,7 +2354,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 function NavBar(_ref) {
   var user = _ref.user,
       onUserChange = _ref.onUserChange;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(StyledNavbar, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default, {
+    className: "amNavbar"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default.Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     style: {
       color: 'white',
       fontWeight: 'bold'
@@ -2392,7 +2388,6 @@ function NavBar(_ref) {
     href: "/about"
   }, "About"))));
 }
-var StyledNavbar = (0,styled_components__WEBPACK_IMPORTED_MODULE_12__.default)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__.default)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  background-color: #383b4a;\n  border-radius: 0px;\n  border-color: transparent;\n  margin-bottom: 30px;\n  \n  /* for home button */\n  .navbar-nav>li>a, .navbar-nav>li>a:focus {\n    color: white;\n    margin: 0 5px;\n  }\n  \n  /* for sign in button */\n  .navbar-nav>li>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n\n  /* ----- for about link ------ */\n  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,\n  .navbar-nav>.open>a:hover {\n    color: white;\n    background-color: #474b5b;\n    border-radius: 7px;\n  }\n\n  /* ----- for navigation links ------ */\n  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {\n    color: white;\n    font-weight: bold;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n\n  .navbar-nav>.active>a:hover {\n    color: white;\n    background-color: #5b5e6f75;\n    border-radius: 7px;\n    margin: 0 5px;\n  }\n"])));
 
 /***/ }),
 

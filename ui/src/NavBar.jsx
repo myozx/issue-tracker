@@ -9,14 +9,13 @@ import {
   Glyphicon,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import styled from 'styled-components';
 import IssueAddNavItem from './IssueAddNavItem.jsx';
 import Search from './Search.jsx';
 import SignInNavItem from './SignInNavItem.jsx';
 
 export default function NavBar({ user, onUserChange }) {
   return (
-    <StyledNavbar>
+    <Navbar className="amNavbar">
       <Navbar.Header>
         <Navbar.Brand>
           <p style={{
@@ -61,53 +60,6 @@ export default function NavBar({ user, onUserChange }) {
           <MenuItem href="/about">About</MenuItem>
         </NavDropdown>
       </Nav>
-    </StyledNavbar>
+    </Navbar>
   );
 }
-
-const StyledNavbar = styled(Navbar)`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: #383b4a;
-  border-radius: 0px;
-  border-color: transparent;
-  margin-bottom: 30px;
-  
-  /* for home button */
-  .navbar-nav>li>a, .navbar-nav>li>a:focus {
-    color: white;
-    margin: 0 5px;
-  }
-  
-  /* for sign in button */
-  .navbar-nav>li>a:hover {
-    color: white;
-    background-color: #474b5b;
-    border-radius: 7px;
-    margin: 0 5px;
-  }
-
-  /* ----- for about link ------ */
-  .navbar-nav>.open>a, .navbar-nav>.open>a:focus,
-  .navbar-nav>.open>a:hover {
-    color: white;
-    background-color: #474b5b;
-    border-radius: 7px;
-  }
-
-  /* ----- for navigation links ------ */
-  .navbar-nav>.active>a, .navbar-nav>.active>a:focus {
-    color: white;
-    font-weight: bold;
-    background-color: #5b5e6f75;
-    border-radius: 7px;
-    margin: 0 5px;
-  }
-
-  .navbar-nav>.active>a:hover {
-    color: white;
-    background-color: #5b5e6f75;
-    border-radius: 7px;
-    margin: 0 5px;
-  }
-`;
